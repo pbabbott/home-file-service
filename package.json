@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:pbabbott/home-file-service.git",
-  "author": "Brandon Abbott <pabbott@starbucks.com>",
-  "license": "MIT"
+  "author": "Brandon Abbott <pabbott@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon -r ts-node ./src/index.ts"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  }
 }
