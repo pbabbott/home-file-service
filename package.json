@@ -1,0 +1,8 @@
+{
+  "name": "home-file-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pbabbott/home-file-service.git",
+  "author": "Brandon Abbott <pabbott@starbucks.com>",
+  "license": "MIT"
+}
