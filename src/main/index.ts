@@ -6,23 +6,29 @@ export const main = async () => {
 
     configureLogger()
     logger.info('🏁 Service Starting...')
+    logger.debug('🏁 Check 123...')
 
     configureProcesses()
 
-    const watcher = chokidar.watch('.').on('all', (event, path) => {
-        logger.debug(`${event} ${path}`);
-    });
-
     const log = (msg) => logger.debug(msg)
 
-    watcher
-        .on('addDir', path => log(`Directory ${path} has been added`))
-        .on('unlinkDir', path => log(`Directory ${path} has been removed`))
-        .on('error', error => log(`Watcher error: ${error}`))
-        .on('ready', () => log('Initial scan complete. Ready for changes'))
-        .on('raw', (event, path, details) => { // internal
-            log(`Raw event info: ${event}, ${path}, ${details}`);
-        });
+    let isReady = false
 
-    logger.debug('Main')
+    chokidar
+        .watch('C:\\temp\\', {
+            awaitWriteFinish: {
+                stabilityThreshold: 2000,
+                pollInterval: 100
+            },
+        })
+        .on('ready', () => {
+            log('Initial scan complete. Ready for changes')
+            isReady = true
+        })
+        .on('add', (path) => {
+            if (isReady)
+                logger.debug(`${path} has been added`);
+        })
+    
+    logger.debug('main() process execution successful.')
 }

@@ -4,7 +4,7 @@ export let logger = undefined
 
 export const configureLogger = () => {
     logger = winston.createLogger({
-        level: 'info',
+        level: 'debug',
         format: winston.format.json(),    
     })
     
