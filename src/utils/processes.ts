@@ -1,17 +1,16 @@
 import { logger } from "./logging"
 
 const exit = () => {
-    console.log('exit(): Program Terminated.')
+    logger.info('exit(): Program Terminated.')
     process.exit(1)
 }
 
 export const configureProcesses = () => {
 
     process.on('uncaughtException', (err) => {
-        logger.error('🚫Uncaught exception', err)
+        logger.error('🚫 Uncaught exception', err)
         exit()
     })
-
     process.on('SIGTERM', () => {
         logger.info('SIGTERM, program exiting')
         exit()
@@ -20,10 +19,11 @@ export const configureProcesses = () => {
         logger.info('SIGINT, program exiting')
         exit()
     })
-
     process.on('SIGUSR2', () => {
         logger.info('SIGUSR2, program exiting')
         exit()
     })
+
+    logger.debug('Process Listeners Configured.')
     
 }

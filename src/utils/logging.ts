@@ -10,10 +10,17 @@ export const configureLogger = () => {
     
     if (process.env.NODE_ENV !== 'production') {
         logger.add(new winston.transports.Console({
-          format: winston.format.simple(),
+          format: winston.format.combine(
+            winston.format.colorize(),
+            winston.format.simple(),
+            winston.format.padLevels()
+          )
         }));
+        logger.debug('🖥️  Console transport added to logger')
     }
-    logger.debug(`Logger configured, process.env.NODE_ENV: ${process.env.NODE_ENV}`)
+
+    logger.debug(`NODE_ENV: ${process.env.NODE_ENV}`)
+    logger.info(`✏️  Logger configured!`)
 }
 
 
