@@ -14,7 +14,17 @@ export class GameClipService {
         this._options = options
     }
 
-    removeZWS(filename) {
+    removeZWSP(path) {
+        const testString = '\u200B|\u200C|\u200D|\uFEFF|'
+        const re = new RegExp(testString)
+        const doesPathContainZWSP = re.test(path)
+
+        
+
+        if (doesPathContainZWSP) {
+
+        }
+
 
     }
 
@@ -36,8 +46,8 @@ export class GameClipService {
                 isReady = true
             })
             .on('add', (path) => {
-                // if (isReady)
-                logger.debug(`${path} has been added`);
+                this.removeZWSP(path)
+                // logger.debug(`${path} has been added`);
             })
 
         logger.info('✔️  GameClipService Started successfully.')
