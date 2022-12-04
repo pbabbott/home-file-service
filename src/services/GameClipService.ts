@@ -1,6 +1,7 @@
 import * as chokidar  from 'chokidar'
+import { CharRemover } from '../logic/CharRemover'
 import { logger } from "../utils/logging"
-
+import * as fs from 'fs'
 
 export type GameClipServiceOptions = {
     captureDirectory: string,
@@ -8,30 +9,24 @@ export type GameClipServiceOptions = {
 }
 
 export class GameClipService {
-    
-    private readonly _options: GameClipServiceOptions
-    constructor(options: GameClipServiceOptions) {
-        this._options = options
+    private constructor(
+        private charRemover: CharRemover,
+        private options: GameClipServiceOptions) {
     }
 
-    removeZWSP(path) {
-        const testString = '\u200B|\u200C|\u200D|\uFEFF|'
-        const re = new RegExp(testString)
-        const doesPathContainZWSP = re.test(path)
-
-        
-
-        if (doesPathContainZWSP) {
-
+    private removeInvalidCharacters(path) {
+        const cleanPath = this.charRemover.removeCharacters(path)
+        if (cleanPath !== path){
+            fs.rename(path, cleanPath, () => {
+                logger.info(`Renamed file: ${cleanPath}`)
+            })
         }
-
-
     }
 
     start() {
         let isReady = false
 
-        const { captureDirectory } = this._options
+        const { captureDirectory } = this.options
         logger.info(`🔭  Watching directory: ${captureDirectory}`)
 
         chokidar
@@ -46,11 +41,16 @@ export class GameClipService {
                 isReady = true
             })
             .on('add', (path) => {
-                this.removeZWSP(path)
+                this.removeInvalidCharacters(path)
                 // logger.debug(`${path} has been added`);
             })
 
         logger.info('✔️  GameClipService Started successfully.')
+    }
+
+    static instance(options: GameClipServiceOptions) {
+        const charRemover = new CharRemover(["\uFEFF", "\u200B", "\u200C", "\u200D"])
+        return new GameClipService(charRemover, options)
     }
 
 }

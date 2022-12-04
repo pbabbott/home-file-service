@@ -8,7 +8,7 @@ export const main = async () => {
 
     configureProcesses()
 
-    const service = new GameClipService({
+    const service = GameClipService.instance({
         captureDirectory: "C:\\Users\\pbabb\\Videos\\Captures",
         // captureDirectory: "C:\\temp",
         outputDirectory: ""
