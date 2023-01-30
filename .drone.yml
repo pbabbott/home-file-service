@@ -12,6 +12,9 @@ trigger:
   - refs/heads/**
 
 steps:
-- name: greeting
+- name: Install packages
   commands:
-  - echo foo bar baz
+  - yarn --frozen-lockfile
+- name: Run tests
+  commands:
+  - yarn test
