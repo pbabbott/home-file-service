@@ -12,11 +12,11 @@ trigger:
   - refs/heads/**
 
 steps:
-- name: Install packages
+- name: Install packages with npm
   commands:
   - npm install
 
-- name: Install packages
+- name: Install packages with yarn
   commands:
   - yarn --frozen-lockfile
 
