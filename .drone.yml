@@ -8,8 +8,8 @@ platform:
   arch: amd64
 
 trigger:
-  branch: 
-    - "*"
+  ref: 
+    - refs/heads/**
 
 
 steps:
