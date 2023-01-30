@@ -1,4 +1,5 @@
 import * as chokidar  from 'chokidar'
+import * as path from 'path'
 import { CharRemover } from '../logic/CharRemover'
 import { logger } from "../utils/logging"
 import * as fs from 'fs'
@@ -14,13 +15,32 @@ export class GameClipService {
         private options: GameClipServiceOptions) {
     }
 
-    private removeInvalidCharacters(path) {
-        const cleanPath = this.charRemover.removeCharacters(path)
-        if (cleanPath !== path){
-            fs.rename(path, cleanPath, () => {
+    private removeInvalidCharacters(fullPath) {
+        const cleanPath = this.charRemover.removeCharacters(fullPath)
+        if (cleanPath !== fullPath){
+            fs.rename(fullPath, cleanPath, () => {
                 logger.info(`Renamed file: ${cleanPath}`)
             })
         }
+    }
+
+    private moveToNas(fullPath) {
+        const { outputDirectory } = this.options
+        
+        const filename = path.basename(fullPath)
+        const destPath = path.join(outputDirectory, filename)
+
+        logger.debug(`src:${fullPath} dest:${destPath}`)
+
+        fs.copyFile(fullPath, destPath, (err) => {
+            if (err) {
+                logger.error(`An error occurred while moving file ${path} to ${destPath} ${err}`)
+            }
+        })
+
+        // fs.rename(path, destPath, (err) => {
+        //    
+        // })
     }
 
     start() {
@@ -42,6 +62,7 @@ export class GameClipService {
             })
             .on('add', (path) => {
                 this.removeInvalidCharacters(path)
+                this.moveToNas(path)
                 // logger.debug(`${path} has been added`);
             })
 
