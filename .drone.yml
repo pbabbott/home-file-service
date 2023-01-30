@@ -15,6 +15,7 @@ steps:
 - name: Install packages
   commands:
   - yarn --frozen-lockfile
+
 - name: Run tests
   commands:
   - yarn test
