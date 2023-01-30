@@ -7,6 +7,11 @@ platform:
   os: windows
   arch: amd64
 
+trigger:
+  branch: 
+    - "*"
+
+
 steps:
 - name: greeting
   commands:
