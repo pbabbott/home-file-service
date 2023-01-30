@@ -1,0 +1,25 @@
+---
+kind: pipeline
+type: exec
+name: default
+
+platform:
+  os: windows
+  arch: amd64
+
+trigger:
+  refs: 
+  - refs/heads/**
+
+steps:
+- name: Install packages with yarn
+  commands:
+  - yarn --frozen-lockfile
+
+- name: Run unit tests
+  commands:
+  - yarn test:unit
+
+- name: Build
+  commands:
+  - yarn build
