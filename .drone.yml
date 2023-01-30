@@ -14,6 +14,10 @@ trigger:
 steps:
 - name: Install packages
   commands:
+  - npm install
+
+- name: Install packages
+  commands:
   - yarn --frozen-lockfile
 
 - name: Run tests
