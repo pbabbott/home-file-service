@@ -9,8 +9,7 @@ platform:
 
 trigger:
   ref: 
-    - refs/heads/**
-
+  - refs/heads/**
 
 steps:
 - name: greeting
