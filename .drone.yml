@@ -15,4 +15,4 @@ trigger:
 steps:
 - name: greeting
   commands:
-  - echo foo bar
+  - echo foo bar baz
