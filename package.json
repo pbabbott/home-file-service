@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "mocha"
+    "test:unit": "mocha"
   },
   "dependencies": {
     "chokidar": "^3.5.3",

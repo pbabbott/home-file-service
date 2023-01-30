@@ -15,6 +15,11 @@ export class GameClipService {
         private options: GameClipServiceOptions) {
     }
 
+    static instance(options: GameClipServiceOptions) {
+        const charRemover = new CharRemover(["\uFEFF", "\u200B", "\u200C", "\u200D"])
+        return new GameClipService(charRemover, options)
+    }
+
     private removeInvalidCharacters(fullPath) {
         const cleanPath = this.charRemover.removeCharacters(fullPath)
         if (cleanPath !== fullPath){
@@ -68,10 +73,6 @@ export class GameClipService {
 
         logger.info('✔️  GameClipService Started successfully.')
     }
-
-    static instance(options: GameClipServiceOptions) {
-        const charRemover = new CharRemover(["\uFEFF", "\u200B", "\u200C", "\u200D"])
-        return new GameClipService(charRemover, options)
-    }
+   
 
 }
