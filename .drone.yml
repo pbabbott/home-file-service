@@ -11,6 +11,7 @@ trigger:
   refs: 
   - refs/heads/**
 
+steps:
 - name: Install packages with yarn
   commands:
   - yarn --frozen-lockfile
