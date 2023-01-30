@@ -8,8 +8,9 @@ platform:
   arch: amd64
 
 trigger:
-  ref: 
-  - refs/heads/*
+  branch: 
+  - main
+  - ci-setup
 
 steps:
 - name: greeting
