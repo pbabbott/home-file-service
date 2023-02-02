@@ -1,6 +1,6 @@
 {
   "name": "home-file-service",
-  "version": "0.0.6-development",
+  "version": "0.0.7-development",
   "main": "index.js",
   "repository": "git@github.com:pbabbott/home-file-service.git",
   "author": "Brandon Abbott <pabbott@gmail.com>",
