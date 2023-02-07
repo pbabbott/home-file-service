@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": "git@github.com:pbabbott/home-file-service.git",
   "author": "Brandon Abbott <pabbott@gmail.com>",
+  "private": "true",
   "license": "MIT",
   "scripts": {
     "start:dev": "nodemon -r ts-node ./src/index.ts",
@@ -29,6 +30,5 @@
     "semantic-release": "^20.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.3"
-  },
-  "packageManager": "yarn@3.4.1"
+  }
 }
