@@ -37,12 +37,16 @@ steps:
   when:
     branch:
       - main
+  commands:
+  - echo %GH_TOKEN%
+  - echo %OneDrive%
+  - echo %TESTING%
+  - yarn semantic-release --debug
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
     GH_TOKEN:
       from_secret: GH_TOKEN
-  commands:
-  - echo %GH_TOKEN%
-  - echo %OneDrive%
-  - yarn semantic-release --debug
+    TESTING: 123
+
+  
