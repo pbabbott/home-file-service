@@ -13,13 +13,34 @@ trigger:
 
 steps:
 - name: Install packages with yarn
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
   commands:
   - yarn --frozen-lockfile
 
 - name: Run unit tests
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
   commands:
   - yarn test:unit
 
 - name: Build
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
   commands:
   - yarn build
+
+- name: Semantic Release
+  when:
+    branch:
+      - main
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+  commands:
+  - semantic-release
