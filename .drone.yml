@@ -43,4 +43,4 @@ steps:
     GH_TOKEN:
       from_secret: GH_TOKEN
   commands:
-  - semantic-release
+  - yarn semantic-release
