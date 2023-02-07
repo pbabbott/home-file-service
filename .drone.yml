@@ -32,3 +32,15 @@ steps:
       from_secret: NPM_TOKEN
   commands:
   - yarn build
+
+- name: Semantic Release
+  when:
+    branch:
+      - main
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+  commands:
+  - semantic-release
