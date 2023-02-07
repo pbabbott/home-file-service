@@ -13,8 +13,12 @@ trigger:
 
 steps:
 - name: Install packages with yarn
+  environment:
+    NPM_TOKEN:
+      from_secret: GH_TOKEN
   commands:
   - yarn --frozen-lockfile
+
 
 - name: Run unit tests
   commands:
