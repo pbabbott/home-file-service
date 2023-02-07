@@ -38,15 +38,15 @@ steps:
     branch:
       - main
   commands:
-  - echo %GH_TOKEN%
+  - echo %GITHUB_TOKEN%
   - echo %OneDrive%
   - echo %TESTING%
   - yarn semantic-release --debug
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
-    GH_TOKEN:
-      from_secret: GH_TOKEN
+    GITHUB_TOKEN:
+      from_secret: GITHUB_TOKEN
     TESTING: 123
 
   
