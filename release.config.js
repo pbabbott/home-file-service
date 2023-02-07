@@ -1,4 +1,5 @@
 module.exports = {
+  'branches': ['main'],
   'release': {
     'branches': ['main'],
     'plugins': [
