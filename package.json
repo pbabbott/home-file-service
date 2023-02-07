@@ -4,7 +4,7 @@
   "main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pbabbott/home-file-service.git"
+		"url": "https://github.com/pbabbott/home-file-service"
 	},
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "private": "true",
