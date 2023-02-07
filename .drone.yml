@@ -43,5 +43,4 @@ steps:
     GH_TOKEN:
       from_secret: GH_TOKEN
   commands:
-  - echo %GH_TOKEN%
-  - yarn semantic-release
+  - yarn semantic-release --debug
