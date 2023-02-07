@@ -12,8 +12,8 @@ trigger:
   - refs/heads/**
 
 environment:
-    NPM_TOKEN:
-      from_secret: NPM_TOKEN
+  NPM_TOKEN:
+    from_secret: NPM_TOKEN
 
 steps:
 - name: Install packages with yarn
