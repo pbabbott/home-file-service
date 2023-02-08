@@ -50,15 +50,19 @@ steps:
   
 ---
 kind: pipeline
-name: default
+name: Continuous Deployment
 type: docker
 trigger:
   branch:
   - deployment
 steps:
-  - name: check ansible syntax
-    image: plugins/ansible:3
-    settings:
-      playbook: ansible/main.yml
-      inventory: ansible/inventory.yml
-      syntax_check: true
+  - name: test
+    image: node
+    commands:
+    - npm install
+  # - name: check ansible syntax
+  #   image: plugins/ansible:3
+  #   settings:
+  #     playbook: ansible/main.yml
+  #     inventory: ansible/inventory.yml
+  #     syntax_check: true
