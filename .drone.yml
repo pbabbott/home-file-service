@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: exec
-name: default
+name: Continuous Integration Pipeline
 
 platform:
   os: windows
@@ -9,7 +9,9 @@ platform:
 
 trigger:
   refs: 
-  - refs/heads/**
+  - refs/heads/v*
+  branch:
+  - main
 
 steps:
 - name: Install packages with yarn
@@ -46,3 +48,17 @@ steps:
       from_secret: GITHUB_TOKEN
 
   
+---
+kind: pipeline
+type: docker
+name: default
+trigger:
+  branch:
+  - deploy
+steps:
+  - name: check ansible syntax
+    image: plugins/ansible:3
+    settings:
+      playbook: ansible/main.yml
+      inventory: ansible/inventory.yml
+      syntax_check: true

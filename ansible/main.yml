@@ -1,0 +1,6 @@
+
+- name: Test connectivity
+  hosts: elder_wand
+  tasks:
+    - name: Example from an Ansible Playbook
+      win_ping:
