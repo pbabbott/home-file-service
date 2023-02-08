@@ -50,11 +50,11 @@ steps:
   
 ---
 kind: pipeline
-type: docker
 name: default
+type: docker
 trigger:
   branch:
-  - deploy
+  - deployment
 steps:
   - name: check ansible syntax
     image: plugins/ansible:3
