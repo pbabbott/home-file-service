@@ -8,8 +8,6 @@ platform:
   arch: amd64
 
 trigger:
-  refs: 
-  - refs/heads/v*
   branch:
   - main
 
@@ -36,9 +34,6 @@ steps:
   - yarn build
 
 - name: Semantic Release
-  when:
-    branch:
-      - main
   commands:
   - yarn semantic-release
   environment:
@@ -59,7 +54,9 @@ platform:
 
 trigger:
   branch:
-  - deployment
+  refs: 
+    - refs/heads/v*
+    
 steps:
   - name: Run ansible deployment playbook
     image: plugins/ansible:3
