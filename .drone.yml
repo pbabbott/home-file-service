@@ -66,4 +66,5 @@ steps:
     settings:
       playbook: ansible/main.yml
       inventory: ansible/inventory.yml
-      syntax_check: true
+      vault_password:
+        from_secret: vault_password
