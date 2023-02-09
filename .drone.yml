@@ -52,6 +52,11 @@ steps:
 kind: pipeline
 name: Continuous Deployment
 type: docker
+
+platform:
+  os: linux
+  arch: arm64
+
 trigger:
   branch:
   - deployment
