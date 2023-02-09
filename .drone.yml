@@ -61,10 +61,6 @@ trigger:
   branch:
   - deployment
 steps:
-  # - name: test
-  #   image: node
-  #   commands:
-  #   - npm install
   - name: check ansible syntax
     image: plugins/ansible:3
     settings:

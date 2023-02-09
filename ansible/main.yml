@@ -2,5 +2,9 @@
 - name: Test connectivity
   hosts: elder_wand
   tasks:
-    - name: Example from an Ansible Playbook
+    - name: Ping windows host
       win_ping:
+    - name: Create home-file-service directory
+      win_file:
+        path: C:\home-file-service
+        state: directory
