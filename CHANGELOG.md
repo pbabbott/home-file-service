@@ -1,5 +1,13 @@
 home-file-service Changelog
 
+## [1.0.6](https://github.com/pbabbott/home-file-service/compare/v1.0.5...v1.0.6) (2023-02-11)
+
+
+### Bug Fixes
+
+* attempt to make ansible depoloyment respect version tag ([53d748e](https://github.com/pbabbott/home-file-service/commit/53d748e28becad9bd0ea8bc670148cdf7d2562c0))
+* empty fix to bump version and test trigger ci ([f10fb79](https://github.com/pbabbott/home-file-service/commit/f10fb7953ea023630dcceaef50695f3a64dc4108))
+
 ## [1.0.5](https://github.com/pbabbott/home-file-service/compare/v1.0.4...v1.0.5) (2023-02-11)
 
 
