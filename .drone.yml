@@ -52,7 +52,6 @@ platform:
   arch: arm64
 
 trigger:
-  branch:
   refs: 
     - refs/tags/*
     
