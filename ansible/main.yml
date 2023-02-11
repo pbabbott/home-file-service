@@ -1,10 +1,28 @@
 
 - name: Test connectivity
   hosts: elder_wand
+  vars:
+    app_version: "1.0.4"
+    temp_dir: "C:\\temp"
+    app_dir: "C:\\home-file-service"
   tasks:
-    - name: Ping windows host
-      win_ping:
+
+    - name: Remove temporary files
+      ansible.windows.win_file:
+        path: "{{temp_dir}}\\package"
+        state: absent
+    
     - name: Create home-file-service directory
       win_file:
-        path: C:\home-file-service
+        path: "{{app_dir}}"
         state: directory
+
+    - name: Restore package version from verdaccio
+      win_shell: "npm pack home-file-service@v{{app_version}}"
+      args:
+        chdir: "{{temp_dir}}"
+    
+    - name: Un tar gz the packed file in the temp dir
+      win_shell: "tar -xvzf  {{temp_dir}}\\home-file-service-{{app_version}}.tgz"
+      args:
+        chdir: "{{temp_dir}}"
