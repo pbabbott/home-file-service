@@ -1,15 +1,15 @@
 ---
 kind: pipeline
 type: exec
-name: default
+name: Continuous Integration Pipeline
 
 platform:
   os: windows
   arch: amd64
 
 trigger:
-  refs: 
-  - refs/heads/**
+  branch:
+  - main
 
 steps:
 - name: Install packages with yarn
@@ -34,9 +34,6 @@ steps:
   - yarn build
 
 - name: Semantic Release
-  when:
-    branch:
-      - main
   commands:
   - yarn semantic-release
   environment:
@@ -46,3 +43,26 @@ steps:
       from_secret: GITHUB_TOKEN
 
   
+---
+kind: pipeline
+name: Continuous Deployment
+type: docker
+
+platform:
+  os: linux
+  arch: arm64
+
+trigger:
+  branch:
+  refs: 
+    - refs/heads/v*
+    
+steps:
+  - name: Run ansible deployment playbook
+    image: plugins/ansible:3
+    settings:
+      playbook: ansible/main.yml
+      inventory: ansible/inventory.yml
+      vault_password:
+        from_secret: ansible_vault_pass
+      requirements: ansible/requirements.txt
