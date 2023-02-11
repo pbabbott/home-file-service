@@ -55,7 +55,7 @@ platform:
 trigger:
   branch:
   refs: 
-    - refs/heads/v*
+    - refs/tags/*
     
 steps:
   - name: Run ansible deployment playbook
@@ -66,4 +66,4 @@ steps:
       vault_password:
         from_secret: ansible_vault_pass
       requirements: ansible/requirements.txt
-      extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF},DRONE_BRANCH=${DRONE_BRANCH}
+      extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}

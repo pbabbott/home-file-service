@@ -2,21 +2,15 @@
 - name: Test connectivity
   hosts: elder_wand
   vars:
-    app_version: "1.0.4"
+    DRONE_COMMIT_REF: 'refs/heads/v1.0.4'
     temp_dir: "C:\\temp"
     app_dir: "C:\\home-file-service"
-    DRONE_COMMIT_REF: 'temp_ref'
-    DRONE_BRANCH: 'temp_branch'
+    app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/heads/v') }}"
   tasks:
     - name: Remove temporary files
       ansible.windows.win_file:
         path: "{{temp_dir}}\\package"
         state: absent
-
-    - name: Try putting env var in file
-      win_lineinfile:
-        path: "{{temp_dir}}\\file.txt"
-        line: "{{ DRONE_COMMIT_REF }} --- {{ DRONE_BRANCH }}"
     
     - name: Create home-file-service directory
       ansible.windows.win_file:
@@ -26,9 +20,9 @@
     - name: Restore package version from verdaccio
       ansible.windows.win_shell: "npm pack home-file-service@v{{app_version}}"
       args:
-        chdir: "{{temp_dir}}"
+        chdir: "{{app_dir}}"
     
-    - name: Un tar gz the packed file in the temp dir
+    - name: Un tar/gz the packed file in the temp dir
       ansible.windows.win_shell: "tar -xvzf  {{temp_dir}}\\home-file-service-{{app_version}}.tgz"
       args:
-        chdir: "{{temp_dir}}"
+        chdir: "{{app_dir}}"
