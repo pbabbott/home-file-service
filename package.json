@@ -1,8 +1,10 @@
 {
   "name": "home-file-service",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "lib/index.js",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/pbabbott/home-file-service"
