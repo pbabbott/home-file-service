@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.0.7](https://github.com/pbabbott/home-file-service/compare/v1.0.6...v1.0.7) (2023-02-11)
+
+
+### Bug Fixes
+
+* attempt to prevent CD from ocurring unnecessarily ([b65b1ab](https://github.com/pbabbott/home-file-service/commit/b65b1ab727fd7ac440945e86f30d3d4a0c8c6d7d))
+
 ## [1.0.6](https://github.com/pbabbott/home-file-service/compare/v1.0.5...v1.0.6) (2023-02-11)
 
 
