@@ -1,7 +1,8 @@
 {
   "name": "home-file-service",
   "version": "1.0.4",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "files": ["lib/**/*"],
   "repository": {
     "type": "git",
     "url": "https://github.com/pbabbott/home-file-service"
@@ -9,11 +10,12 @@
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "install:service": "nodef",
     "start:dev": "nodemon -r ts-node ./src/index.ts",
     "commit": "git-cz",
     "lint": "eslint . --ext .ts",
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node lib/index.js",
     "test:unit": "mocha",
     "semantic-release": "semantic-release"
   },
