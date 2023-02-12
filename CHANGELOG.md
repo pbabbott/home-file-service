@@ -1,5 +1,13 @@
 home-file-service Changelog
 
+## [1.1.2](https://github.com/pbabbott/home-file-service/compare/v1.1.1...v1.1.2) (2023-02-12)
+
+
+### Bug Fixes
+
+* Ensure installation scripts path is correct ([4a5687a](https://github.com/pbabbott/home-file-service/commit/4a5687a27dcca0f4d485e983dba2882e3f0c4603))
+* Ensure installation scripts path is correct ([628ca1e](https://github.com/pbabbott/home-file-service/commit/628ca1ed0bc51ebf24c68ea1cb8572c81cc888f3))
+
 ## [1.1.1](https://github.com/pbabbott/home-file-service/compare/v1.1.0...v1.1.1) (2023-02-12)
 
 
