@@ -1,6 +1,6 @@
 kind: pipeline
 type: exec
-name: Continuous Integration Pipeline
+name: continuous-integration
 
 platform:
   os: windows
@@ -9,6 +9,9 @@ platform:
 trigger:
   branch:
   - main
+  ref:
+    exclude:
+      - refs/tags/*
 
 steps:
 - name: Install packages with yarn
@@ -41,10 +44,9 @@ steps:
     GITHUB_TOKEN:
       from_secret: GITHUB_TOKEN
 
-  
 ---
 kind: pipeline
-name: Continuous Deployment
+name: continuous-deployment
 type: docker
 
 platform:
@@ -52,8 +54,8 @@ platform:
   arch: arm64
 
 trigger:
-  refs: 
-    - refs/tags/*
+  ref: 
+    - refs/tags/v*
     
 steps:
   - name: Run ansible deployment playbook
