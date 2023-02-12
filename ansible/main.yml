@@ -12,6 +12,17 @@
         path: "{{temp_dir}}\\package"
         state: absent
     
+    - name: Firewall rule to allow HTTP on TCP port 4000
+      community.windows.win_firewall_rule:
+        name: HTTP
+        localport: 4000
+        action: allow
+        direction: in
+        protocol: tcp
+        profiles: private
+        state: present
+        enabled: yes
+
     # - name: touch temp file
     #   ansible.windows.win_file:
     #     path: "{{temp_dir}}\\file.txt"

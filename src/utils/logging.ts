@@ -1,10 +1,13 @@
 import * as winston from 'winston'
+import { config } from '../utils/config'
 
 export let logger = undefined
 
 export const configureLogger = () => {
+    const { level } = config.logging
+
     logger = winston.createLogger({
-        level: 'debug',
+        level,
         format: winston.format.json(),    
     })
     
