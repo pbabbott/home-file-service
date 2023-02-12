@@ -22,8 +22,11 @@ export const configureLogger = () => {
         logger.debug('🖥️  Console transport added to logger')
     }
 
+    const { file } = config.logging
+    logger.add(new (winston.transports.File)({ filename: file }))
+
     logger.debug(`NODE_ENV: ${process.env.NODE_ENV}`)
-    logger.info(`✏️  Logger configured!`)
+    logger.debug(`✏️  Logger configured!`)
 }
 
 

@@ -5,7 +5,7 @@ const exit = () => {
     process.exit(1)
 }
 
-export const configureProcesses = () => {
+export const configureProcessListeners = () => {
 
     process.on('uncaughtException', (err) => {
         logger.error('🚫 Uncaught exception', err)

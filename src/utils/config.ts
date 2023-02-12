@@ -7,20 +7,26 @@ export let config
 
 const fileExists = async path => !!(await fs.stat(path).catch(e => false));
 
-const defaultConfig = {
-    captureDirectory: 'C:\\Users\\pbabb\\Videos\\Captures',
-    outputDirectory: 'V:\\Temp',
-    logging: { 
-        logFile: 'C:\\\\home-file-service\\\\log.txt', 
-        level: 'debug' 
-    },
-    port: 4000
+const getDefaultConfig = () => {
+    const logFile = path.resolve(global.__basedir, 'output.log')
+    
+    return {
+        captureDirectory: 'C:\\Users\\pbabb\\Videos\\Captures',
+        outputDirectory: 'V:\\Temp',
+        logging: { 
+            logFile, 
+            level: 'debug' 
+        },
+        port: 4000
+    }
 }
 
 export const loadConfig = async () => {
     // path should be even with package.json
     const configPath = path.resolve(__dirname, '../../config.yml')
     const configFileExists = await fileExists(configPath);
+
+    const defaultConfig = getDefaultConfig()
 
     if (!configFileExists) 
         return defaultConfig
