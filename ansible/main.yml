@@ -12,6 +12,16 @@
         path: "{{temp_dir}}\\package"
         state: absent
     
+    - name: touch temp file
+      ansible.windows.win_file:
+        path: "{{temp_dir}}\\file.txt"
+        state: touch
+
+    - name: Insert line into file
+      community.windows.win_lineinfile:
+        path: "{{temp_dir}}\\file.txt"
+        line: "npm pack home-file-service@v{{app_version}}"
+
     - name: Create home-file-service directory
       ansible.windows.win_file:
         path: "{{app_dir}}"
