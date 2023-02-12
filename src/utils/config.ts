@@ -12,7 +12,7 @@ const getDefaultConfig = () => {
     
     return {
         captureDirectory: 'C:\\Users\\pbabb\\Videos\\Captures',
-        outputDirectory: 'V:\\Temp',
+        outputDirectory: 'V:\\GameCaptures\\Raw',
         logging: { 
             logFile, 
             level: 'debug',
