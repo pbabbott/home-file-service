@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.3](https://github.com/pbabbott/home-file-service/compare/v1.1.2...v1.1.3) (2023-02-12)
+
+
+### Bug Fixes
+
+* Update node-windows path to script entrypoint ([d8ed6a0](https://github.com/pbabbott/home-file-service/commit/d8ed6a0f8a784826a6d268d2c7a0e4b6b35c23d6))
+
 ## [1.1.2](https://github.com/pbabbott/home-file-service/compare/v1.1.1...v1.1.2) (2023-02-12)
 
 
