@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.0.8](https://github.com/pbabbott/home-file-service/compare/v1.0.7...v1.0.8) (2023-02-12)
+
+
+### Bug Fixes
+
+* attempt to make drone triggers make more sense ([7fe8728](https://github.com/pbabbott/home-file-service/commit/7fe8728a83d4b28322f18c3cd5b9339853aeee8f))
+
 ## [1.0.7](https://github.com/pbabbott/home-file-service/compare/v1.0.6...v1.0.7) (2023-02-11)
 
 
