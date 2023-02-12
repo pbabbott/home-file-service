@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.1](https://github.com/pbabbott/home-file-service/compare/v1.1.0...v1.1.1) (2023-02-12)
+
+
+### Bug Fixes
+
+* Ensure windows installation scripts are in lib ([88824c0](https://github.com/pbabbott/home-file-service/commit/88824c0df81c92a6503d3a28fdfe321e5224889f))
+
 # [1.1.0](https://github.com/pbabbott/home-file-service/compare/v1.0.9...v1.1.0) (2023-02-12)
 
 
