@@ -1,8 +1,0 @@
-default:
-  captureDirectory: "C:\\Users\\pbabb\\Videos\\Captures"
-  outputDirectory: "V:\\GameCaptures\\Raw"
-  logging:
-    file: output.log
-    level: debug
-  port: 4000
-  

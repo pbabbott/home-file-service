@@ -15,7 +15,8 @@ const getDefaultConfig = () => {
         outputDirectory: 'V:\\Temp',
         logging: { 
             logFile, 
-            level: 'debug' 
+            level: 'debug',
+            enableConsole: true
         },
         port: 4000
     }
@@ -23,7 +24,7 @@ const getDefaultConfig = () => {
 
 export const loadConfig = async () => {
     // path should be even with package.json
-    const configPath = path.resolve(__dirname, '../../config.yml')
+    const configPath = path.resolve(global.__basedir, '../../config.yml')
     const configFileExists = await fileExists(configPath);
 
     const defaultConfig = getDefaultConfig()
