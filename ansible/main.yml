@@ -2,7 +2,7 @@
 - name: Test connectivity
   hosts: elder_wand
   vars:
-    DRONE_COMMIT_REF: 'refs/tags/v1.0.8'
+    DRONE_COMMIT_REF: 'refs/tags/v1.0.9'
     temp_dir: "C:\\temp"
     app_dir: "C:\\home-file-service"
     app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
@@ -12,27 +12,58 @@
         path: "{{temp_dir}}\\package"
         state: absent
     
-    - name: touch temp file
-      ansible.windows.win_file:
-        path: "{{temp_dir}}\\file.txt"
-        state: touch
+    # - name: touch temp file
+    #   ansible.windows.win_file:
+    #     path: "{{temp_dir}}\\file.txt"
+    #     state: touch
 
-    - name: Insert line into file
-      community.windows.win_lineinfile:
-        path: "{{temp_dir}}\\file.txt"
-        line: "npm pack home-file-service@v{{app_version}}"
+    # - name: Insert line into file
+    #   community.windows.win_lineinfile:
+    #     path: "{{temp_dir}}\\file.txt"
+    #     line: "npm pack home-file-service@v{{app_version}}"
+
+    - name: Restore package version from verdaccio
+      ansible.windows.win_shell: "npm pack home-file-service@v{{app_version}}"
+      args:
+        chdir: "{{temp_dir}}"
+    
+    - name: Un tar/gz the packed file in the temp dir
+      ansible.windows.win_shell: "tar -xvzf  {{temp_dir}}\\home-file-service-{{app_version}}.tgz"
+      args:
+        chdir: "{{temp_dir}}"
+
+    - name: Retrieve node modules
+      ansible.windows.win_shell: "npm install"
+      args:
+        chdir: "{{temp_dir}}\\package"
+
+    - name: npm link node-windows
+      ansible.windows.win_shell: "npm link node-windows"
+      args:
+        chdir: "{{temp_dir}}\\package"
+
+    - name: Uninstall the existing service.
+      ansible.windows.win_shell: "npm run service:uninstall"
+      args:
+        chdir: "{{temp_dir}}\\package"
+
+    - name: Delete home-file-service directory
+      ansible.windows.win_file:
+        path: "{{app_dir}}"
+        state: absent
 
     - name: Create home-file-service directory
       ansible.windows.win_file:
         path: "{{app_dir}}"
         state: directory
 
-    - name: Restore package version from verdaccio
-      ansible.windows.win_shell: "npm pack home-file-service@v{{app_version}}"
+    - name: Copy latest package folder into home-file-service
+      ansible.windows.win_copy:
+        src: "{{temp_dir}}\\package"
+        dest: "{{app_dir}}"
+        remote_src: yes
+
+    - name: Install the service.
+      ansible.windows.win_shell: "npm run service:install"
       args:
-        chdir: "{{app_dir}}"
-    
-    - name: Un tar/gz the packed file in the temp dir
-      ansible.windows.win_shell: "tar -xvzf  {{temp_dir}}\\home-file-service-{{app_version}}.tgz"
-      args:
-        chdir: "{{app_dir}}"
+        chdir: "{{temp_dir}}\\package"
