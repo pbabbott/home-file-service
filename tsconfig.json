@@ -9,6 +9,6 @@
       "outDir": "./lib"
     },
     "lib": ["es2015"],
-    "include": ["src", "src/windows"],
+    "include": ["src", "package.json"],
     "exclude": ["node_modules", "ansible"]
 }
