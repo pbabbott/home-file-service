@@ -1,5 +1,13 @@
 home-file-service Changelog
 
+## [1.0.9](https://github.com/pbabbott/home-file-service/compare/v1.0.8...v1.0.9) (2023-02-12)
+
+
+### Bug Fixes
+
+* Adjust ansible deployment to output debug variable into file ([407208e](https://github.com/pbabbott/home-file-service/commit/407208e9ed729a01b902e081bf142fe5064f1106))
+* **ansible/main.yml:** fix regex replace so proper version tag appears ([aae5f92](https://github.com/pbabbott/home-file-service/commit/aae5f92bb46afcab7925b31c425344f6d3a4fc72))
+
 ## [1.0.8](https://github.com/pbabbott/home-file-service/compare/v1.0.7...v1.0.8) (2023-02-12)
 
 
