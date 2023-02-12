@@ -1,12 +1,19 @@
+import { loadConfig } from '../utils/config'
 import { configureLogger, logger } from '../utils/logging'
-import { configureProcesses } from '../utils/processes'
+import { configureProcessListeners } from '../utils/processes'
 import { GameClipService } from '../services/GameClipService'
+import { configureExpressApp } from '../express'
 
 export const main = async () => {
-    configureLogger()
-    logger.info('🏁 Service Starting...')
+    await loadConfig()
 
-    configureProcesses()
+    configureLogger()
+    logger.info(`----------------------------------`)
+    logger.info('🏁 Service Starting...')
+    logger.info(`----------------------------------`)
+
+    configureProcessListeners()
+    configureExpressApp()  
 
     const service = GameClipService.instance({
         captureDirectory: "C:\\Users\\pbabb\\Videos\\Captures",

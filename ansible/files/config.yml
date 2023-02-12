@@ -1,0 +1,5 @@
+default:
+  logging:
+    level: info
+    enableConsole: false
+  port: 4000
