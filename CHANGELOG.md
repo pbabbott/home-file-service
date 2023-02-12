@@ -1,5 +1,20 @@
 home-file-service Changelog
 
+# [1.1.0](https://github.com/pbabbott/home-file-service/compare/v1.0.9...v1.1.0) (2023-02-12)
+
+
+### Bug Fixes
+
+* Ensure config file gets copied to remote as well ([0c2308f](https://github.com/pbabbott/home-file-service/commit/0c2308fecc7b400099f6bf6568b85607c160b3ac))
+* update ansible deployment script to update the windows service ([e76c84c](https://github.com/pbabbott/home-file-service/commit/e76c84c52189db0dfa12c61b036280ddba6585c4))
+* Update readme and fix config defaults ([780ad42](https://github.com/pbabbott/home-file-service/commit/780ad42f85df3b9d227b717c9d982d169b4ba78a))
+
+
+### Features
+
+* add in ability to specify a config file and WIP on express.js server ([dfcb712](https://github.com/pbabbott/home-file-service/commit/dfcb7124cacfe4d7ebd6f872fa00de12e866d3a4))
+* improve logging, express app, and configuration ([d77d467](https://github.com/pbabbott/home-file-service/commit/d77d4678722450f0d946c1e3310ee055ac051f39))
+
 ## [1.0.9](https://github.com/pbabbott/home-file-service/compare/v1.0.8...v1.0.9) (2023-02-12)
 
 
