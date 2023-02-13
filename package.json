@@ -12,8 +12,8 @@
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "service:install": "node ./lib/src/windows/install.js",
-    "service:uninstall": "node ./lib/src/windows/uninstall.js",
+    "service:install": "node ./lib/windows/install.js",
+    "service:uninstall": "node ./lib/windows/uninstall.js",
     "start:dev": "nodemon -r ts-node ./src/index.ts",
     "commit": "git-cz",
     "lint": "eslint . --ext .ts",
