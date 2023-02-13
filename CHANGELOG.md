@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.4](https://github.com/pbabbott/home-file-service/compare/v1.1.3...v1.1.4) (2023-02-13)
+
+
+### Bug Fixes
+
+* make build directory make more sense ([e9e12da](https://github.com/pbabbott/home-file-service/commit/e9e12daffe73021c96c58560886256ebb4c92977))
+
 ## [1.1.3](https://github.com/pbabbott/home-file-service/compare/v1.1.2...v1.1.3) (2023-02-12)
 
 
