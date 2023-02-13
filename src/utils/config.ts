@@ -3,7 +3,7 @@ import { loadAsync } from 'node-yaml-config'
 import path from 'path'
 import * as _ from 'lodash'
 
-export let config
+export let config = undefined
 
 const fileExists = async path => !!(await fs.stat(path).catch(e => false));
 
@@ -29,12 +29,12 @@ export const loadConfig = async () => {
 
     const defaultConfig = getDefaultConfig()
 
-    if (!configFileExists) 
+    if (!configFileExists) {
+        console.log(`Found config file at ${configPath}`)
         return defaultConfig
-        
+    }        
     const fileConfig = await loadAsync(configPath)
 
     config = _.merge({}, defaultConfig, fileConfig)
-
-    return config    
+    console.log('Config set as', config)
 }
