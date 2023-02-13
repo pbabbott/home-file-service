@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.5](https://github.com/pbabbott/home-file-service/compare/v1.1.4...v1.1.5) (2023-02-13)
+
+
+### Bug Fixes
+
+* **package.json:** install/uninstall path ([3404765](https://github.com/pbabbott/home-file-service/commit/34047659337fcda7b704dd08e685037a8afc75aa))
+
 ## [1.1.4](https://github.com/pbabbott/home-file-service/compare/v1.1.3...v1.1.4) (2023-02-13)
 
 
