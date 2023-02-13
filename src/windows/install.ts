@@ -1,18 +1,7 @@
-var Service = require('node-windows').Service;
+import { service } from './index'
 
-// Create a new service object
-var svc = new Service({
-  name:'Home File Service',
-  description: 'A service to help manage files on my home computer.',
-  script: 'C:\\home-file-service\\package\\lib\\index.js',
-  nodeOptions: [
-    '--harmony',
-    '--max_old_space_size=4096'
-  ]
+service.on('install',function(){
+  service.start();
 });
 
-svc.on('install',function(){
-  svc.start();
-});
-
-svc.install();
+service.install();

@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "service:install": "node ./lib/windows/install.js",
-    "service:uninstall": "node ./lib/windows/uninstall.js",
+    "service:stop": "node ./lib/windows/stop.js",
     "start:dev": "nodemon -r ts-node ./src/index.ts",
     "commit": "git-cz",
     "lint": "eslint . --ext .ts",

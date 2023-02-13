@@ -53,8 +53,8 @@
       args:
         chdir: "{{temp_dir}}\\package"
 
-    - name: Uninstall the existing service.
-      ansible.windows.win_shell: "npm run service:uninstall"
+    - name: Stop the existing service.
+      ansible.windows.win_shell: "npm run service:stop"
       args:
         chdir: "{{temp_dir}}\\package"
 
