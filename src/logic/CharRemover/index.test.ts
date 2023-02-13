@@ -1,6 +1,6 @@
 import 'mocha'
 import { expect } from 'chai'
-import { CharRemover } from '.'
+import { CharRemover } from './index'
 
 describe('CharRemover', () => {
 

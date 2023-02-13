@@ -39,7 +39,8 @@ export const loadConfig = async () => {
 
     if (!configFileExists) {
         console.log(`Did not find config file at ${configPath}, using default config`)
-        return defaultConfig
+        config = defaultConfig
+        return
     }
 
 
