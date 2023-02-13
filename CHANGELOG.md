@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.6](https://github.com/pbabbott/home-file-service/compare/v1.1.5...v1.1.6) (2023-02-13)
+
+
+### Bug Fixes
+
+* adjust uninstall script ([dbfc26b](https://github.com/pbabbott/home-file-service/commit/dbfc26b5a038615892582c6a402c0353bd648091))
+
 ## [1.1.5](https://github.com/pbabbott/home-file-service/compare/v1.1.4...v1.1.5) (2023-02-13)
 
 
