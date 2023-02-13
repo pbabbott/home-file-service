@@ -3,7 +3,7 @@ var Service = require('node-windows').Service;
 // Create a new service object
 var svc = new Service({
   name:'Home File Service',
-  script: 'C:\\home-file-service\\package\\lib\\index.js',
+  script: 'C:\\home-file-service\\package\\lib\\src\\index.js',
 });
 
 // Listen for the "uninstall" event so we know when it's done.

@@ -2,7 +2,7 @@
 - name: Test connectivity
   hosts: elder_wand
   vars:
-    DRONE_COMMIT_REF: 'refs/tags/v1.0.9'
+    DRONE_COMMIT_REF: 'refs/tags/v1.1.5'
     temp_dir: "C:\\temp"
     app_dir: "C:\\home-file-service"
     app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
