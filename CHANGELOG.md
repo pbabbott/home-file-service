@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.8](https://github.com/pbabbott/home-file-service/compare/v1.1.7...v1.1.8) (2023-02-13)
+
+
+### Bug Fixes
+
+* Add more logging to config module ([bda088f](https://github.com/pbabbott/home-file-service/commit/bda088f42c1db83f9d22d1f5deedf62de1a74dee))
+
 ## [1.1.7](https://github.com/pbabbott/home-file-service/compare/v1.1.6...v1.1.7) (2023-02-13)
 
 
