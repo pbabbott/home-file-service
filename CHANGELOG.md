@@ -1,5 +1,13 @@
 home-file-service Changelog
 
+## [1.1.10](https://github.com/pbabbott/home-file-service/compare/v1.1.9...v1.1.10) (2023-02-13)
+
+
+### Bug Fixes
+
+* attempt to fix winston file transport ([c54c052](https://github.com/pbabbott/home-file-service/commit/c54c052f3b5f6c23e01d36df4f97e4fc5a4843b9))
+* fix bug in config module where default config was not being used ([d24d289](https://github.com/pbabbott/home-file-service/commit/d24d28951a367d8b5dad991381363e2261b4e042))
+
 ## [1.1.9](https://github.com/pbabbott/home-file-service/compare/v1.1.8...v1.1.9) (2023-02-13)
 
 
