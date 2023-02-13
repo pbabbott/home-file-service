@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.9](https://github.com/pbabbott/home-file-service/compare/v1.1.8...v1.1.9) (2023-02-13)
+
+
+### Bug Fixes
+
+* attempt to fix file exists check for config ([a9a4b8a](https://github.com/pbabbott/home-file-service/commit/a9a4b8a8439a1427cbe5bc3cb339c836118afb15))
+
 ## [1.1.8](https://github.com/pbabbott/home-file-service/compare/v1.1.7...v1.1.8) (2023-02-13)
 
 
