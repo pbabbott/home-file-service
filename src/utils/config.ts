@@ -32,17 +32,19 @@ const getDefaultConfig = () => {
 
 export const loadConfig = async () => {
     // path should be even with package.json
-    const configPath = path.resolve(global.__basedir, '../../config.yml')
+    const configPath = path.resolve(global.__basedir, '../config.yml')
     const configFileExists = await fileExists(configPath);
 
     const defaultConfig = getDefaultConfig()
 
     if (!configFileExists) {
-        console.log(`Found config file at ${configPath}`)
+        console.log(`Did not find config file at ${configPath}, using default config`)
         return defaultConfig
     }
-    const fileConfig = await loadAsync(configPath)
 
+
+    const fileConfig = await loadAsync(configPath)
     config = _.merge({}, defaultConfig, fileConfig)
-    console.log('Config set as', config)
+    console.log(`Found config file at ${configPath} -- resulting config is`, config)
+
 }
