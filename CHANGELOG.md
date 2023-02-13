@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.7](https://github.com/pbabbott/home-file-service/compare/v1.1.6...v1.1.7) (2023-02-13)
+
+
+### Bug Fixes
+
+* Attempt to improve service installation routine ([13387d9](https://github.com/pbabbott/home-file-service/commit/13387d99c297a8eb663d2b3dfc120751f0b803cb))
+
 ## [1.1.6](https://github.com/pbabbott/home-file-service/compare/v1.1.5...v1.1.6) (2023-02-13)
 
 
