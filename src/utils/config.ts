@@ -5,16 +5,24 @@ import * as _ from 'lodash'
 
 export let config = undefined
 
-const fileExists = async path => !!(await fs.stat(path).catch(e => false));
+async function fileExists(path) {
+    try {
+        await fs.access(path)
+        return true
+    } catch {
+        return false
+    }
+}
+
 
 const getDefaultConfig = () => {
     const logFile = path.resolve(global.__basedir, 'output.log')
-    
+
     return {
         captureDirectory: 'C:\\Users\\pbabb\\Videos\\Captures',
         outputDirectory: 'V:\\GameCaptures\\Raw',
-        logging: { 
-            logFile, 
+        logging: {
+            logFile,
             level: 'debug',
             enableConsole: true
         },
@@ -32,7 +40,7 @@ export const loadConfig = async () => {
     if (!configFileExists) {
         console.log(`Found config file at ${configPath}`)
         return defaultConfig
-    }        
+    }
     const fileConfig = await loadAsync(configPath)
 
     config = _.merge({}, defaultConfig, fileConfig)
