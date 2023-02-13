@@ -77,7 +77,7 @@
     - name: Copy the config file to remote
       ansible.windows.win_copy:
         src: "./files/config.yml"
-        dest: "{{app_dir}}"
+        dest: "{{app_dir}}\\package"
 
     - name: Install the service.
       ansible.windows.win_shell: "npm run service:install"

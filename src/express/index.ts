@@ -1,13 +1,11 @@
 import express from 'express'
 import { config } from '../utils/config'
 import { logger } from '../utils/logging'
-import * as pack from '../../package.json'
 
 
 export const configureExpressApp = () => {
     const app = express()
-
-    const { name, version } = pack
+    const { name, version } = require('../../package.json')
 
     app.get('/', (req, res) => {
         res.json({
