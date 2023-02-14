@@ -8,22 +8,20 @@ export const configureLogger = () => {
 
     logger = winston.createLogger({
         level,
-        format: winston.format.json(),    
+        format: winston.format.json(),
     })
-    
-    if (process.env.NODE_ENV !== 'production') {
-        logger.add(new winston.transports.Console({
-          format: winston.format.combine(
-            winston.format.colorize(),
-            winston.format.simple(),
-            winston.format.padLevels()
-          )
-        }));
-        logger.debug('🖥️  Console transport added to logger')
+
+    const formats = []
+    if (config.logging.colorize) {
+        formats.push(winston.format.colorize())
     }
 
-    const { logFile } = config.logging
-    logger.add(new (winston.transports.File)({ filename: logFile }))
+    formats.push(winston.format.simple())
+    formats.push(winston.format.padLevels())
+
+    logger.add(new winston.transports.Console({
+        format: winston.format.combine(...formats)
+    }));
 
     logger.debug(`NODE_ENV: ${process.env.NODE_ENV}`)
     logger.debug(`✏️  Logger configured!`)

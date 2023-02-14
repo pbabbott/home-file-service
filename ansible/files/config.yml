@@ -1,5 +1,5 @@
 default:
   logging:
     level: info
-    enableConsole: false
+    colorize: false
   port: 4000

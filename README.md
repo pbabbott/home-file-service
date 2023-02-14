@@ -44,10 +44,8 @@ default:
   captureDirectory: "C:\\Users\\pbabb\\Videos\\Captures"
   outputDirectory: "V:\\GameCaptures\\Raw"
   logging:
-    # File will be put into project root
-    file: output.log
     level: debug
-    enableConsole: true
+    colorize: true
   port: 4000
 ```
 

@@ -16,15 +16,13 @@ async function fileExists(path) {
 
 
 const getDefaultConfig = () => {
-    const logFile = path.resolve(global.__basedir, 'output.log')
 
     return {
         captureDirectory: 'C:\\Users\\pbabb\\Videos\\Captures',
         outputDirectory: 'V:\\GameCaptures\\Raw',
         logging: {
-            logFile,
             level: 'debug',
-            enableConsole: true
+            colorize: true
         },
         port: 4000
     }
