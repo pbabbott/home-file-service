@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.16](https://github.com/pbabbott/home-file-service/compare/v1.1.15...v1.1.16) (2023-02-14)
+
+
+### Bug Fixes
+
+* Remove bogus chars from ansible deploy ([3a235f7](https://github.com/pbabbott/home-file-service/commit/3a235f72d24411115546f408921d6003c3c9a408))
+
 ## [1.1.15](https://github.com/pbabbott/home-file-service/compare/v1.1.14...v1.1.15) (2023-02-14)
 
 
