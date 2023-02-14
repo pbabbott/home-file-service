@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.14](https://github.com/pbabbott/home-file-service/compare/v1.1.13...v1.1.14) (2023-02-14)
+
+
+### Bug Fixes
+
+* put the service stop back where it was.. ([ebc07f2](https://github.com/pbabbott/home-file-service/commit/ebc07f2c6bcf8ff8cfbd3e91020a5affc78325be))
+
 ## [1.1.13](https://github.com/pbabbott/home-file-service/compare/v1.1.12...v1.1.13) (2023-02-14)
 
 
