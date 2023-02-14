@@ -7,12 +7,6 @@
     app_dir: "C:\\home-file-service"
     app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
   tasks:
-
-    - name: Stop the existing service.
-      ansible.windows.win_shell: "npm run service:stop"
-      args:
-        chdir: "{{temp_dir}}\\package"
-
     - name: Remove temporary files
       ansible.windows.win_file:
         path: "{{temp_dir}}\\package"
@@ -56,6 +50,11 @@
 
     - name: npm link node-windows
       ansible.windows.win_shell: "npm link node-windows"
+      args:
+        chdir: "{{temp_dir}}\\package"
+
+    - name: Stop the existing service.
+      ansible.windows.win_shell: "npm run service:stop"
       args:
         chdir: "{{temp_dir}}\\package"
 
