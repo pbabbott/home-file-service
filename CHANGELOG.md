@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.15](https://github.com/pbabbott/home-file-service/compare/v1.1.14...v1.1.15) (2023-02-14)
+
+
+### Bug Fixes
+
+* Correct path in logging when copyfile fails ([62e2e07](https://github.com/pbabbott/home-file-service/commit/62e2e07b68bef109644909e7b2c0eab33c653a3c))
+
 ## [1.1.14](https://github.com/pbabbott/home-file-service/compare/v1.1.13...v1.1.14) (2023-02-14)
 
 
