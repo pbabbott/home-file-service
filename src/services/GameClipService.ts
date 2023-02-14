@@ -1,7 +1,7 @@
 import * as chokidar  from 'chokidar'
 import * as path from 'path'
 import { CharRemover } from '../logic/CharRemover'
-import { logger } from "../utils/logging"
+import { logger, logError } from "../utils/logging"
 import * as fs from 'fs'
 
 export type GameClipServiceOptions = {
@@ -39,10 +39,12 @@ export class GameClipService {
 
         fs.copyFile(fullPath, destPath, (err) => {
             if (err) {
-                logger.error(`An error occurred while moving file ${path} to ${destPath} ${err}`)
+                logger.error(`An error occurred while moving file from ${path} to ${destPath}`)
+                logError(err)
             }
         })
 
+        // TODO: actually move the file, not just copy.
         // fs.rename(path, destPath, (err) => {
         //    
         // })
