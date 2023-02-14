@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.12](https://github.com/pbabbott/home-file-service/compare/v1.1.11...v1.1.12) (2023-02-14)
+
+
+### Bug Fixes
+
+* make error logging output more data ([a78a143](https://github.com/pbabbott/home-file-service/commit/a78a1437277990d33f766b7d471757fb57730c7b))
+
 ## [1.1.11](https://github.com/pbabbott/home-file-service/compare/v1.1.10...v1.1.11) (2023-02-14)
 
 
