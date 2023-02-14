@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.13](https://github.com/pbabbott/home-file-service/compare/v1.1.12...v1.1.13) (2023-02-14)
+
+
+### Bug Fixes
+
+* Stop the windows service as the first install step ([04049e7](https://github.com/pbabbott/home-file-service/commit/04049e7995638c78f4c29f22c933099c0f822d60))
+
 ## [1.1.12](https://github.com/pbabbott/home-file-service/compare/v1.1.11...v1.1.12) (2023-02-14)
 
 
