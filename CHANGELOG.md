@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.11](https://github.com/pbabbott/home-file-service/compare/v1.1.10...v1.1.11) (2023-02-14)
+
+
+### Bug Fixes
+
+* make logs respect config along with game clip service ([a3e1331](https://github.com/pbabbott/home-file-service/commit/a3e133152fe6c9a4085f3857e309ba10e6b27f61))
+
 ## [1.1.10](https://github.com/pbabbott/home-file-service/compare/v1.1.9...v1.1.10) (2023-02-13)
 
 
