@@ -39,7 +39,7 @@ export class GameClipService {
 
         fs.copyFile(fullPath, destPath, (err) => {
             if (err) {
-                logger.error(`An error occurred while moving file from ${path} to ${destPath}`)
+                logger.error(`An error occurred while moving file from ${fullPath} to ${destPath}`)
                 logError(err)
             }
         })
