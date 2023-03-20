@@ -1,0 +1,6 @@
+{
+	"spec": "./src/**/*.test.ts",
+	"exclude": "./node_modules/**",
+	"require": ["ts-node/register", "ts-node/register/transpile-only"],
+	"exit": true
+}
