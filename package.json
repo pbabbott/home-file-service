@@ -13,7 +13,7 @@
   "scripts": {
     "build": "yarn ultra -r build",
     "test:unit": "yarn ultra -r test:unit",
-    "semantic-release": "yarn workspace @home/file-service semantic-release -e semantic-release-monorepo"
+    "semantic-release": "yarn workspaces run semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.2",
