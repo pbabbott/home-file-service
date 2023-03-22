@@ -1,7 +1,7 @@
 var WindowsService = require('node-windows').Service;
 
 // Create a new service object
-export const service = new WindowsService({
+const service = new WindowsService({
   name:'Home File Service',
   description: 'A service to help manage files on my home computer.',
   script: 'C:\\home-file-service\\package\\lib\\index.js',
@@ -11,3 +11,5 @@ export const service = new WindowsService({
   ]
 });
 
+
+module.exports = { service }

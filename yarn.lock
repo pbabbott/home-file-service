@@ -469,7 +469,7 @@
 
 "@semantic-release/changelog@^6.0.2":
   version "6.0.2"
-  resolved "http://192.168.4.124:4873/@semantic-release/changelog/-/changelog-6.0.2.tgz"
+  resolved "http://192.168.4.124:4873/@semantic-release/changelog/-/changelog-6.0.2.tgz#fdcdbd368788c8fcc69c4af29bf2064f4afb45f4"
   integrity sha512-jHqfTkoPbDEOAgAP18mGP53IxeMwxTISN+GwTRy9uLu58UjARoZU8ScCgWGeO2WPkEsm57H8AkyY02W2ntIlIw==
   dependencies:
     "@semantic-release/error" "^3.0.0"
@@ -497,7 +497,7 @@
 
 "@semantic-release/git@^10.0.1":
   version "10.0.1"
-  resolved "http://192.168.4.124:4873/@semantic-release/git/-/git-10.0.1.tgz"
+  resolved "http://192.168.4.124:4873/@semantic-release/git/-/git-10.0.1.tgz#c646e55d67fae623875bf3a06a634dd434904498"
   integrity sha512-eWrx5KguUcU2wUPaO6sfvZI0wPafUKAMNC18aXY4EnNcrZL86dEmpNVnC9uMpGZkmZJ9EfCVJBQx4pV4EMGT1w==
   dependencies:
     "@semantic-release/error" "^3.0.0"

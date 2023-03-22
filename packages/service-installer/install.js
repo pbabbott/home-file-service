@@ -1,4 +1,4 @@
-import { service } from './index'
+const service = require('./index')
 
 service.on('install',function(){
   service.start();

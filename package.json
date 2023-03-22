@@ -1,54 +1,15 @@
 {
+  "private": true,
   "name": "home-file-service",
-  "version": "1.1.15",
-  "main": "lib/index.js",
-  "type": "commonjs",
-  "files": [
-    "lib/**/*"
-  ],
+  "version": "1.0.0",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pbabbott/home-file-service"
   },
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "service:install": "node ./lib/windows/install.js",
-    "service:stop": "node ./lib/windows/stop.js",
-    "start:dev": "nodemon -r ts-node ./src/index.ts",
-    "commit": "git-cz",
-    "lint": "eslint . --ext .ts",
-    "clean": "rimraf ./lib",
-    "prebuild": "npm run clean",
-    "build": "tsc",
-    "start": "node lib/index.js",
-    "test:unit": "mocha",
-    "semantic-release": "semantic-release"
-  },
-  "dependencies": {
-    "chokidar": "^3.5.3",
-    "express": "^4.18.2",
-    "lodash": "^4.17.21",
-    "node-yaml-config": "^1.0.0",
-    "winston": "^3.8.2"
-  },
-  "devDependencies": {
-    "@semantic-release/changelog": "^6.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@types/lodash": "^4.14.191",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
-    "chai": "^4.3.7",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.28.0",
-    "mocha": "^10.1.0",
-    "nodemon": "^2.0.20",
-    "rimraf": "^4.1.2",
-    "semantic-release": "^20.1.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.3"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
