@@ -16,8 +16,7 @@
     "prebuild": "npm run clean",
     "build": "tsc",
     "start": "node lib/index.js",
-    "test:unit": "mocha",
-    "semantic-release": "semantic-release"
+    "test:unit": "mocha"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
