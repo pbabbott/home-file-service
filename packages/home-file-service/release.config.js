@@ -1,4 +1,5 @@
 module.exports = {
+  extends: "semantic-release-monorepo",
   release: {
     branches: [
       'main'

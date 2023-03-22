@@ -1,17 +1,8 @@
 {
   "private": true,
   "name": "home-file-service",
-<<<<<<< HEAD
   "version": "1.0.0",
   "main": "index.js",
-=======
-  "version": "1.1.16",
-  "main": "lib/index.js",
-  "type": "commonjs",
-  "files": [
-    "lib/**/*"
-  ],
->>>>>>> bb8e8cad3c7399d75a8264c2d8862882c42cca01
   "repository": {
     "type": "git",
     "url": "https://github.com/pbabbott/home-file-service"
@@ -20,5 +11,13 @@
   "license": "MIT",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "build": "yarn ultra -r build",
+    "test:unit": "yarn ultra -r test:unit",
+    "semantic-release": "yarn ultra semantic-release -e semantic-release-monorepo"
+  },
+  "devDependencies": {
+    "ultra-runner": "^3.10.5"
+  }
 }
