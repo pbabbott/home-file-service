@@ -38,7 +38,7 @@ steps:
 
 - name: Semantic Release
   commands:
-  - yarn semantic-release
+  - yarn semantic-release --debug
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
