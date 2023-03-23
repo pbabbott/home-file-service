@@ -15,6 +15,12 @@ trigger:
       - refs/tags/*
 
 steps:
+- name: Check version of tools
+  commands:
+  - node -v
+  - npm -v
+  - yarn -v
+
 - name: Install packages with yarn
   environment:
     NPM_TOKEN:
