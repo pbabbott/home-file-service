@@ -15,10 +15,10 @@ trigger:
       - refs/tags/*
 
 steps:
-- name: update tools
-  commands:
-    - npm install -g npm@9.6.0
-    - npm install -g 'yarn@1.22.19'
+# - name: update tools
+#   commands:
+#     - npm install -g npm@9.6.0
+#     - npm install -g 'yarn@1.22.19'
 
 - name: Check version of tools
   commands:
