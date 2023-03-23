@@ -9,5 +9,6 @@
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
     "nx": "15.0.10"
-  }
+  },
+  "version": "0.0.0"
 }
