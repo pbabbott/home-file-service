@@ -27,14 +27,14 @@ steps:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
   commands:
-  - npx nx test @home/file-service
+  - npx nx test home-file-service
 
 - name: Build
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
   commands:
-  - npx nx build @home/file-service  
+  - npx nx build home-file-service  
 
 - name: Semantic Release
   commands:
