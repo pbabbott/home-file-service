@@ -21,7 +21,7 @@
     "build": "tsc",
     "start": "node lib/index.js",
     "test": "mocha",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release --debug"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
