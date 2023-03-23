@@ -27,44 +27,44 @@ steps:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
   commands:
-  - yarn test:unit
+  - npx nx test @home/file-service
 
 - name: Build
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
   commands:
-  - yarn build
+  - npx nx build @home/file-service  
 
 - name: Semantic Release
   commands:
-  - yarn semantic-release --debug
+  - npx nx run home-file-service:semantic-release 
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
     GITHUB_TOKEN:
       from_secret: GITHUB_TOKEN
 
----
-kind: pipeline
-name: continuous-deployment
-type: docker
+# ---
+# kind: pipeline
+# name: continuous-deployment
+# type: docker
 
-platform:
-  os: linux
-  arch: arm64
+# platform:
+#   os: linux
+#   arch: arm64
 
-trigger:
-  ref: 
-    - refs/tags/v*
+# trigger:
+#   ref: 
+#     - refs/tags/v*
     
-steps:
-  - name: Run ansible deployment playbook
-    image: plugins/ansible:3
-    settings:
-      playbook: ansible/main.yml
-      inventory: ansible/inventory.yml
-      vault_password:
-        from_secret: ansible_vault_pass
-      requirements: ansible/requirements.txt
-      extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
+# steps:
+#   - name: Run ansible deployment playbook
+#     image: plugins/ansible:3
+#     settings:
+#       playbook: ansible/main.yml
+#       inventory: ansible/inventory.yml
+#       vault_password:
+#         from_secret: ansible_vault_pass
+#       requirements: ansible/requirements.txt
+#       extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}

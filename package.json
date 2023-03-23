@@ -1,25 +1,13 @@
 {
   "private": true,
   "name": "home-file-service",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pbabbott/home-file-service"
-  },
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "build": "yarn ultra -r build",
-    "test:unit": "yarn ultra -r test:unit",
-    "semantic-release": "yarn workspaces run semantic-release -e semantic-release-monorepo"
-  },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "semantic-release": "^20.1.0",
-    "semantic-release-monorepo": "^7.0.5",
-    "ultra-runner": "^3.10.5"
+    "@nrwl/nx-cloud": "latest",
+    "nx": "15.0.10"
   }
 }
