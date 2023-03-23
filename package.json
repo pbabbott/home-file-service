@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "home-file-service",
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
