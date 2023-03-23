@@ -1,5 +1,22 @@
 home-file-service Changelog
 
+## [1.1.17](https://github.com/pbabbott/home-file-service/compare/v1.1.16...v1.1.17) (2023-03-23)
+
+
+### Bug Fixes
+
+* Add missing files from previous commit ([f802e6b](https://github.com/pbabbott/home-file-service/commit/f802e6b65d50a368737b8a5fa04b53ff29ceec85))
+* Add ultra and scripts in root ([59bbf5b](https://github.com/pbabbott/home-file-service/commit/59bbf5b82303d28b321b03a24f4e8664ab99ef2b))
+* Adjust changelog and package.json in attempt to fix semantic-release ([e6fb7c4](https://github.com/pbabbott/home-file-service/commit/e6fb7c4ea5dce2d079e80bc0d365c9f723342663))
+* Adjust semantic release command to use yarn workspaces ([f73a646](https://github.com/pbabbott/home-file-service/commit/f73a646044e3922e4bab0dee6042d7c40a22cf23))
+* Adjust semantic-release to just version home-file-service ([112a9c7](https://github.com/pbabbott/home-file-service/commit/112a9c7e6394626190e5dbcdfecfe43d682fdff9))
+* Move changelog to package ([4f0ee9f](https://github.com/pbabbott/home-file-service/commit/4f0ee9f778c465351660a7ca77b9b95782715f9e))
+* move cz config to root ([416dbbf](https://github.com/pbabbott/home-file-service/commit/416dbbf98dd3e29f6221ec9c8dabf9bf9c6e7a7a))
+* move semantic release config to root ([0604532](https://github.com/pbabbott/home-file-service/commit/060453219afa6e37f52a03089a433577b805a24a))
+* Rework project into yarn workspaces ([91ba5f2](https://github.com/pbabbott/home-file-service/commit/91ba5f236a496d88582879cc7ece91770cb29dda))
+* Rework project into yarn workspaces ([6ecf22d](https://github.com/pbabbott/home-file-service/commit/6ecf22da7036541fe443b9070f6befeb98e38925))
+* semantic-release command ([6e7fe8b](https://github.com/pbabbott/home-file-service/commit/6e7fe8b510b1c52bc0e0d496a71f3c513fc169cd))
+
 ## [1.1.16](https://github.com/pbabbott/home-file-service/compare/v1.1.15...v1.1.16) (2023-02-14)
 
 
