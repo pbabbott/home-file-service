@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.18](https://github.com/pbabbott/home-file-service/compare/v1.1.17...v1.1.18) (2023-03-23)
+
+
+### Bug Fixes
+
+* adjust lockfile ([c151b32](https://github.com/pbabbott/home-file-service/commit/c151b32e2590e89acd51a9ae7b4698ee23e34c71))
+
 ## [1.1.17](https://github.com/pbabbott/home-file-service/compare/v1.1.16...v1.1.17) (2023-03-23)
 
 
