@@ -1,5 +1,14 @@
 home-file-service Changelog
 
+## [1.1.19](https://github.com/pbabbott/home-file-service/compare/v1.1.18...v1.1.19) (2023-03-23)
+
+
+### Bug Fixes
+
+* attempt to adjust root npmrc settings ([607514f](https://github.com/pbabbott/home-file-service/commit/607514f90abd993fb225d18ef41b9d0c3539eff3))
+* attempt to fix ci with .npmrc file in yarn package ([da3ef5e](https://github.com/pbabbott/home-file-service/commit/da3ef5eeff74f7d3b08c0b27d0dce3691463d617))
+* disable tool upgrades in ci ([2267218](https://github.com/pbabbott/home-file-service/commit/2267218ab34867e856b56d03b5ba7740c4675115))
+
 ## [1.1.18](https://github.com/pbabbott/home-file-service/compare/v1.1.17...v1.1.18) (2023-03-23)
 
 
