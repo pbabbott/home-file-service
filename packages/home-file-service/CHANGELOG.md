@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.1.20](https://github.com/pbabbott/home-file-service/compare/v1.1.19...v1.1.20) (2023-03-24)
+
+
+### Bug Fixes
+
+* touch file to trigger release ([de47fb9](https://github.com/pbabbott/home-file-service/commit/de47fb9bdce69c79218d8866891994f8200dfe07))
+
 ## [1.1.19](https://github.com/pbabbott/home-file-service/compare/v1.1.18...v1.1.19) (2023-03-23)
 
 
