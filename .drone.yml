@@ -6,6 +6,9 @@ platform:
   os: windows
   arch: amd64
 
+node:
+  name: elder_wand
+
 trigger:
   branch:
   - main
@@ -45,26 +48,38 @@ steps:
     GITHUB_TOKEN:
       from_secret: GITHUB_TOKEN
 
+- name: check version
+  commands: 
+  - drone --version
+
 ---
 kind: pipeline
-name: continuous-deployment
-type: docker
+name: deployment 
+type: exec
 
 platform:
-  os: linux
-  arch: arm64
+  os: windows
+  arch: amd64
+
+node:
+  name: elder_wand
 
 trigger:
   ref: 
     - refs/tags/v*
     
 steps:
-  - name: Run ansible deployment playbook
-    image: plugins/ansible:3
-    settings:
-      playbook: ansible/main.yml
-      inventory: ansible/inventory.yml
-      vault_password:
-        from_secret: ansible_vault_pass
-      requirements: ansible/requirements.txt
-      extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
+  - name: "Un-install previous"
+    commands:
+    - yarn link node-windows
+    - npx nx run service-installer:stop
+# steps:
+#   - name: Run ansible deployment playbook
+#     image: plugins/ansible:3
+#     settings:
+#       playbook: ansible/main.yml
+#       inventory: ansible/inventory.yml
+#       vault_password:
+#         from_secret: ansible_vault_pass
+#       requirements: ansible/requirements.txt
+#       extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}

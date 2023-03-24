@@ -31,6 +31,20 @@ yarn start:dev
 This project is installed via `ansible`.  The playbook called `ansible/main.yml` will install this project as a windows-service on a target machine.  The ability to un-install and install a windows service is managed by the package `node-windows` (see more here: https://www.npmjs.com/package/node-windows).
 
 
+### Requirements
+
+```sh
+pip install --user pywinrm
+```
+
+### Deployment Command
+
+Adjust the tag to whichever version you'd like to deploy.
+```sh
+ansible-playbook --extra-vars DRONE_COMMIT_REF=refs/tags/v1.1.20 main.yml
+```
+
+
 ## Configuration
 
 This project will look for a file called `config.yml` in the application base directory.

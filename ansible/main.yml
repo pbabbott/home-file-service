@@ -1,4 +1,21 @@
 
+# - name: Ensure Previous Service is Stopped & Un-installed
+#   hosts: localhost
+#   vars:
+#     DRONE_COMMIT_REF: 'refs/tags/v1.1.19'    
+#     install_dir: "packages/service-installer"
+#   tasks:
+#     - name: npm link node-windows
+#       ansible.windows.win_shell: "npm link node-windows"
+#       args:
+#         chdir: "{{ install_dir }}"
+
+#     - name: Stop the service.
+#       ansible.windows.win_shell: "node stop.js"
+#       args:
+#         chdir: "{{ install_dir }}"
+
+
 # - name: Test Connectivity
 #   hosts: elder_wand
 #   vars:
@@ -6,6 +23,9 @@
 #     temp_dir: "C:\\temp"
 #     app_dir: "C:\\home-file-service"
 #     app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
+# temp_dir: "C:\\temp"
+# app_dir: "C:\\home-file-service"
+# app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
 #   tasks:
 #     - name: touch temp file
 #       ansible.windows.win_file:
@@ -31,24 +51,7 @@
 #         enabled: yes
 
 
-- name: Ensure Previous Service is Stopped & Un-installed
-  hosts: elder_wand
-  vars:
-    DRONE_COMMIT_REF: 'refs/tags/v1.1.19'
-    temp_dir: "C:\\temp"
-    app_dir: "C:\\home-file-service"
-    app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
-    install_dir: "packages\\service-installer"
-  tasks:
-    - name: npm link node-windows
-      ansible.windows.win_shell: "npm link node-windows"
-      args:
-        chdir: "{{ install_dir }}"
 
-    - name: Stop the service.
-      ansible.windows.win_shell: "node stop.js"
-      args:
-        chdir: "{{ install_dir }}"
 
     # - name: Remove temporary files
     #   ansible.windows.win_file:
