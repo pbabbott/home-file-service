@@ -4,7 +4,7 @@
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
   "workspaces": [
-    "packages/*"
+    "packages/home-file-service"
   ],
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
