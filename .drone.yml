@@ -49,25 +49,20 @@
 
 # ---
 kind: pipeline
-name: deployment 
+name: stop-service
 type: exec
-
 platform:
   os: windows
   arch: amd64
-
 node:
   name: elder_wand
-
 trigger:
   # ref: 
   #   - refs/tags/v*
   branch:
     - main
-
-  
 steps:
-  - name: "Link intaller packages"
+  - name: "Stop Service"
     environment:
       NPM_TOKEN:
         from_secret: NPM_TOKEN
@@ -77,10 +72,17 @@ steps:
     - npm link node-windows
     - npm run stop
 
-  - name: Stop Service
-    commands:
-    - yarn run stop
+---
+kind: pipeline
+name: update-files
+type: docker
 
+platform:
+  os: linux
+  arch: arm64
+depends_on:
+  - stop-service
+steps:
   - name: Run ansible deployment playbook
     image: plugins/ansible:3
     settings:
@@ -91,6 +93,25 @@ steps:
       requirements: ansible/requirements.txt
       #extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
 
-  - name: Install new service
-    commands:
-    - npm run install
+
+---
+kind: pipeline
+name: stop-service
+type: exec
+platform:
+  os: windows
+  arch: amd64
+node:
+  name: elder_wand
+depends_on:
+  - update-files
+steps:
+- name: "Stop Service"
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+  commands:
+  - npm install -g node-windows
+  - cd packages/service-installer
+  - npm link node-windows
+  - npm run install
