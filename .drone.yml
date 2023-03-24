@@ -48,10 +48,6 @@ steps:
     GITHUB_TOKEN:
       from_secret: GITHUB_TOKEN
 
-- name: check version
-  commands: 
-  - drone --version
-
 ---
 kind: pipeline
 name: deployment 
@@ -72,6 +68,9 @@ trigger:
   
 steps:
   - name: "Un-install previous"
+    environment:
+      NPM_TOKEN:
+        from_secret: NPM_TOKEN
     commands:
     - yarn link node-windows
     - npx nx run service-installer:stop
