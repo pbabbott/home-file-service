@@ -74,10 +74,12 @@ steps:
 kind: pipeline
 name: update-files
 type: docker
-
 platform:
   os: linux
   arch: arm64
+trigger:
+  ref: 
+    - refs/tags/v*
 depends_on:
   - stop-service
 steps:
@@ -100,6 +102,9 @@ platform:
   arch: amd64
 node:
   name: elder_wand
+trigger:
+  ref: 
+    - refs/tags/v*
 depends_on:
   - update-files
 steps:
