@@ -67,7 +67,9 @@ node:
 trigger:
   ref: 
     - refs/tags/v*
-    
+  event:
+    - promote
+  
 steps:
   - name: "Un-install previous"
     commands:
