@@ -47,7 +47,7 @@
 #     GITHUB_TOKEN:
 #       from_secret: GITHUB_TOKEN
 
----
+# ---
 kind: pipeline
 name: deployment 
 type: exec
