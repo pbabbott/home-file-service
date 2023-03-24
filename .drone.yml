@@ -106,7 +106,7 @@ node:
 depends_on:
   - update-files
 steps:
-- name: "Stop Service"
+- name: "Install & Start New Service"
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
