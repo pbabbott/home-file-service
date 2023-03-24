@@ -96,7 +96,7 @@ steps:
 
 ---
 kind: pipeline
-name: stop-service
+name: start-service
 type: exec
 platform:
   os: windows
