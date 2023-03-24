@@ -1,53 +1,51 @@
-# kind: pipeline
-# type: exec
-# name: continuous-integration
+kind: pipeline
+type: exec
+name: continuous-integration
+platform:
+  os: windows
+  arch: amd64
+node:
+  name: elder_wand
 
-# platform:
-#   os: windows
-#   arch: amd64
+trigger:
+  branch:
+  - main
+  ref:
+    exclude:
+      - refs/tags/*
 
-# node:
-#   name: elder_wand
+steps:
+- name: Install packages with yarn
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+  commands:
+  - yarn --frozen-lockfile
 
-# trigger:
-#   branch:
-#   - main
-#   ref:
-#     exclude:
-#       - refs/tags/*
+- name: Run unit tests
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+  commands:
+  - npx nx test home-file-service
 
-# steps:
-# - name: Install packages with yarn
-#   environment:
-#     NPM_TOKEN:
-#       from_secret: NPM_TOKEN
-#   commands:
-#   - yarn --frozen-lockfile
+- name: Build
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+  commands:
+  - npx nx build home-file-service  
 
-# - name: Run unit tests
-#   environment:
-#     NPM_TOKEN:
-#       from_secret: NPM_TOKEN
-#   commands:
-#   - npx nx test home-file-service
+- name: Semantic Release
+  commands:
+  - npx nx run home-file-service:semantic-release 
+  environment:
+    NPM_TOKEN:
+      from_secret: NPM_TOKEN
+    GITHUB_TOKEN:
+      from_secret: GITHUB_TOKEN
 
-# - name: Build
-#   environment:
-#     NPM_TOKEN:
-#       from_secret: NPM_TOKEN
-#   commands:
-#   - npx nx build home-file-service  
-
-# - name: Semantic Release
-#   commands:
-#   - npx nx run home-file-service:semantic-release 
-#   environment:
-#     NPM_TOKEN:
-#       from_secret: NPM_TOKEN
-#     GITHUB_TOKEN:
-#       from_secret: GITHUB_TOKEN
-
-# ---
+---
 kind: pipeline
 name: stop-service
 type: exec
@@ -57,10 +55,10 @@ platform:
 node:
   name: elder_wand
 trigger:
-  # ref: 
-  #   - refs/tags/v*
-  branch:
-    - main
+  ref: 
+    - refs/tags/v*
+  # branch:
+  #   - main
 steps:
   - name: "Stop Service"
     environment:
@@ -91,8 +89,7 @@ steps:
       vault_password:
         from_secret: ansible_vault_pass
       requirements: ansible/requirements.txt
-      #extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
-
+      extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
 
 ---
 kind: pipeline
