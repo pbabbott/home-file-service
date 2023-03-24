@@ -72,10 +72,9 @@ steps:
       NPM_TOKEN:
         from_secret: NPM_TOKEN
     commands:
-    - yarn -v
-    - yarn global add node-windows
+    - npm install -g node-windows
     - cd packages/service-installer
-    - yarn link node-windows
+    - npm link node-windows
     - yarn run stop
 # steps:
 #   - name: Run ansible deployment playbook
