@@ -51,6 +51,11 @@
             dest: "{{app_dir}}"
             remote_src: yes
 
+        - name: Restore node modules
+          ansible.windows.win_shell: "npm install --production"
+            args:
+            chdir: "{{app_dir}}\\package"    
+
         - name: Copy the config file to remote
           ansible.windows.win_copy:
             src: "./files/config.yml"
@@ -63,10 +68,7 @@
             path: "{{temp_dir}}\\package"
             state: absent 
 
-# - name: Restore node modules
-#   ansible.windows.win_shell: "npm install --production"
-#   args:
-#     chdir: "{{app_dir}}\\package"    
+
 
 # - name: Ensure Previous Service is Stopped & Un-installed
 #   hosts: localhost
