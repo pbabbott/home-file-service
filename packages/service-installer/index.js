@@ -11,5 +11,4 @@ const service = new WindowsService({
   ]
 });
 
-
-module.exports = { service }
+module.exports = service

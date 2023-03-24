@@ -1,5 +1,19 @@
 home-file-service Changelog
 
+## [1.1.22](https://github.com/pbabbott/home-file-service/compare/v1.1.21...v1.1.22) (2023-03-24)
+
+
+### Bug Fixes
+
+* syntax errors in ansible playbook ([cd4a300](https://github.com/pbabbott/home-file-service/commit/cd4a30023003f889c1d48b97d590dc7795accd10))
+
+## [1.1.21](https://github.com/pbabbott/home-file-service/compare/v1.1.20...v1.1.21) (2023-03-24)
+
+
+### Bug Fixes
+
+* wip on drone deployment pattern ([d18b6a4](https://github.com/pbabbott/home-file-service/commit/d18b6a4d51c43f894db9f147132ddd69a06b36c9))
+
 ## [1.1.20](https://github.com/pbabbott/home-file-service/compare/v1.1.19...v1.1.20) (2023-03-24)
 
 
