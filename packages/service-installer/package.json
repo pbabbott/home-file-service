@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "stop": "node stop.js"
+    "stop": "node stop.js",
+    "install": "node install.js"
   }
 }

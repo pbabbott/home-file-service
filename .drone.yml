@@ -67,7 +67,7 @@ trigger:
 
   
 steps:
-  - name: "Un-install previous"
+  - name: "Link intaller packages"
     environment:
       NPM_TOKEN:
         from_secret: NPM_TOKEN
@@ -75,14 +75,22 @@ steps:
     - npm install -g node-windows
     - cd packages/service-installer
     - npm link node-windows
+    - npm run stop
+
+  - name: Stop Service
+    commands:
     - yarn run stop
-# steps:
-#   - name: Run ansible deployment playbook
-#     image: plugins/ansible:3
-#     settings:
-#       playbook: ansible/main.yml
-#       inventory: ansible/inventory.yml
-#       vault_password:
-#         from_secret: ansible_vault_pass
-#       requirements: ansible/requirements.txt
-#       extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
+
+  - name: Run ansible deployment playbook
+    image: plugins/ansible:3
+    settings:
+      playbook: ansible/main.yml
+      inventory: ansible/inventory.yml
+      vault_password:
+        from_secret: ansible_vault_pass
+      requirements: ansible/requirements.txt
+      #extra_vars: DRONE_COMMIT_REF=${DRONE_COMMIT_REF}
+
+  - name: Install new service
+    commands:
+    - npm run install
