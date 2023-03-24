@@ -72,7 +72,8 @@ steps:
       NPM_TOKEN:
         from_secret: NPM_TOKEN
     commands:
-    - yarn install -g node-windows
+    - yarn -v
+    - yarn global add node-windows
     - yarn link node-windows
     - npx nx run service-installer:stop
 # steps:
