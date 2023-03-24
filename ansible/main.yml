@@ -12,8 +12,6 @@
         state: present
         enabled: yes
 
-app_dir: "C:\\home-file-service"
-
 - name: Install New Version of Windows Service
   hosts: elder_wand
   vars:
@@ -21,7 +19,7 @@ app_dir: "C:\\home-file-service"
     temp_dir: "C:\\temp"
     app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
     install_dir: "packages\\service-installer"
-
+    app_dir: "C:\\home-file-service"
   tasks:
     - name: Prepare Temp Directory
       block:
@@ -53,11 +51,6 @@ app_dir: "C:\\home-file-service"
             dest: "{{app_dir}}"
             remote_src: yes
 
-        # - name: Restore node modules
-        #   ansible.windows.win_shell: "npm install --production"
-        #   args:
-        #     chdir: "{{app_dir}}\\package"
-        
         - name: Copy the config file to remote
           ansible.windows.win_copy:
             src: "./files/config.yml"
@@ -70,18 +63,10 @@ app_dir: "C:\\home-file-service"
             path: "{{temp_dir}}\\package"
             state: absent 
 
-    
-
-
-
-
-
-
-
-
-
-
-
+# - name: Restore node modules
+#   ansible.windows.win_shell: "npm install --production"
+#   args:
+#     chdir: "{{app_dir}}\\package"    
 
 # - name: Ensure Previous Service is Stopped & Un-installed
 #   hosts: localhost
