@@ -24,16 +24,20 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@reactivex/rxjs": "^6.6.7",
     "chokidar": "^3.5.3",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
+    "luxon": "^3.3.0",
     "node-yaml-config": "^1.0.0",
+    "rxjs": "^7.8.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "@types/lodash": "^4.14.191",
+    "@types/luxon": "^3.2.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.43.0",

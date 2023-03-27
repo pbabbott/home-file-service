@@ -5,7 +5,7 @@ import * as _ from 'lodash'
 
 export let config = undefined
 
-async function fileExists(path) {
+export async function fileExists(path) {
     try {
         await fs.access(path)
         return true

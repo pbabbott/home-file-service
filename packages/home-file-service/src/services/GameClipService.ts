@@ -1,78 +1,54 @@
-import * as chokidar  from 'chokidar'
-import * as path from 'path'
-import { CharRemover } from '../logic/CharRemover'
-import { logger, logError } from "../utils/logging"
-import * as fs from 'fs'
+import { concatAll, filter, map, mergeAll, tap } from 'rxjs'
+import { logger } from "../utils/logging"
+import { ObservableGameClipDirectory } from '../logic/ObservableGameClipDirectory'
+import { cleanFilenameOperator } from '../logic/CleanFilenameOperator'
+import { filenameParserOperator } from '../logic/FilenameParserOperator'
+import { FileMoveObserver } from '../logic/FileMoveObserver'
+
 
 export type GameClipServiceOptions = {
     captureDirectory: string,
-    outputDirectory: string
+    outputDirectory: string,
+    waitForInitialScan: boolean
 }
 
 export class GameClipService {
     private constructor(
-        private charRemover: CharRemover,
         private options: GameClipServiceOptions) {
     }
 
     static instance(options: GameClipServiceOptions) {
-        const charRemover = new CharRemover(["\uFEFF", "\u200B", "\u200C", "\u200D"])
-        return new GameClipService(charRemover, options)
+        return new GameClipService(options)
     }
 
-    private removeInvalidCharacters(fullPath) {
-        const cleanPath = this.charRemover.removeCharacters(fullPath)
-        if (cleanPath !== fullPath){
-            fs.rename(fullPath, cleanPath, () => {
-                logger.info(`Renamed file: ${cleanPath}`)
-            })
-        }
-    }
+   
+    start() {
 
-    private moveToNas(fullPath) {
-        const { outputDirectory } = this.options
-        
-        const filename = path.basename(fullPath)
-        const destPath = path.join(outputDirectory, filename)
-
-        logger.debug(`src:${fullPath} dest:${destPath}`)
-
-        fs.copyFile(fullPath, destPath, (err) => {
-            if (err) {
-                logger.error(`An error occurred while moving file from ${fullPath} to ${destPath}`)
-                logError(err)
-            }
+        // Start monitoring a directory
+        const directoryMonitor = new ObservableGameClipDirectory({
+            captureDirectory: this.options.captureDirectory,
+            waitForInitialScan: false,
+            maxFiles: 1,
+            enableDebugLogs: false
         })
 
-        // TODO: actually move the file, not just copy.
-        // fs.rename(path, destPath, (err) => {
-        //    
-        // })
-    }
+        let observable$ = directoryMonitor
+            .getObservable()
+            .pipe(map(cleanFilenameOperator))
+            .pipe(mergeAll())
+            .pipe(map(filenameParserOperator))
+            .pipe(filter(x => x.success === true))
 
-    start() {
-        let isReady = false
+        const {outputDirectory } = this.options
+        const fileMoveObserver = new FileMoveObserver({ 
+            outputDirectory,
+            noOp: false,
+            copyMode: true
+        })
 
-        const { captureDirectory } = this.options
-        logger.info(`🔭  Watching directory: ${captureDirectory}`)
-
-        chokidar
-            .watch(captureDirectory, {
-                awaitWriteFinish: {
-                    stabilityThreshold: 2000,
-                    pollInterval: 100
-                },
-            })
-            .on('ready', () => {
-                logger.info('🔭  Initial scan complete. Ready for changes.')
-                isReady = true
-            })
-            .on('add', (path) => {
-                this.removeInvalidCharacters(path)
-                this.moveToNas(path)
-                // logger.debug(`${path} has been added`);
-            })
-
+        observable$.subscribe(fileMoveObserver)
+        
+        directoryMonitor.startDirectoryWatcher()
         logger.info('✔️  GameClipService Started successfully.')
     }
    

@@ -17,7 +17,8 @@ export const main = async () => {
 
     const service = GameClipService.instance({
         captureDirectory: config.captureDirectory,
-        outputDirectory: config.outputDirectory
+        outputDirectory: config.outputDirectory,
+        waitForInitialScan: true
     })
     service.start()
 
