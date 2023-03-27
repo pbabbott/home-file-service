@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+# [1.2.0](https://github.com/pbabbott/home-file-service/compare/v1.1.22...v1.2.0) (2023-03-27)
+
+
+### Features
+
+* Re-write filewatcher service to move files properly using rxjs streams ([77b2519](https://github.com/pbabbott/home-file-service/commit/77b25192f66a3931886d631facd55c5a584a6c6e))
+
 ## [1.1.22](https://github.com/pbabbott/home-file-service/compare/v1.1.21...v1.1.22) (2023-03-24)
 
 
