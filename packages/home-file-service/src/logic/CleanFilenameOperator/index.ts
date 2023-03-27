@@ -27,26 +27,5 @@ export const cleanFilenameOperator = (fullPath:string) => {
     })
 }
 
-    
-    // private moveToNas(fullPath) {
-    //     const { outputDirectory } = this.options
-        
-    //     const filename = path.basename(fullPath)
-    //     const destPath = path.join(outputDirectory, filename)
-    
-    //     logger.debug(`src:${fullPath} dest:${destPath}`)
-    
-    //     // fs.copyFile(fullPath, destPath, (err) => {
-    //     //     if (err) {
-    //     //         logger.error(`An error occurred while moving file from ${fullPath} to ${destPath}`)
-    //     //         logError(err)
-    //     //     }
-    //     // })
-    
-    //     // TODO: actually move the file, not just copy.
-    //     // fs.rename(path, destPath, (err) => {
-    //     //    
-    //     // })
-    // }
-    
+
   

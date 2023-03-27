@@ -1,4 +1,5 @@
 default:
+  outputDirectory: '\\RoomOfRequirement\Video Editing\GameCaptures\Raw'
   logging:
     level: info
     colorize: false

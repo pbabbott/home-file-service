@@ -112,6 +112,8 @@ steps:
   environment:
     NPM_TOKEN:
       from_secret: NPM_TOKEN
+    ACCOUNT_PASSWORD:
+      from_secret: ACCOUNT_PASSWORD
   commands:
   - npm install -g node-windows
   - cd packages/service-installer
