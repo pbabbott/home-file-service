@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.2.1](https://github.com/pbabbott/home-file-service/compare/v1.2.0...v1.2.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* Attempt to add user and password to service install ([dca71ac](https://github.com/pbabbott/home-file-service/commit/dca71ace0b6b26863ed76dafa55d4812d7b5daa6))
+
 # [1.2.0](https://github.com/pbabbott/home-file-service/compare/v1.1.22...v1.2.0) (2023-03-27)
 
 
