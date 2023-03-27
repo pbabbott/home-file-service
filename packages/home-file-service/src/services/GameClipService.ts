@@ -27,8 +27,8 @@ export class GameClipService {
         // Start monitoring a directory
         const directoryMonitor = new ObservableGameClipDirectory({
             captureDirectory: this.options.captureDirectory,
-            waitForInitialScan: false,
-            maxFiles: 1,
+            waitForInitialScan: true,
+            // maxFiles: 1,
             enableDebugLogs: false
         })
 
