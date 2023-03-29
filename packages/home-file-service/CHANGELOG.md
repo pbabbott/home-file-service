@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+# [1.3.0](https://github.com/pbabbott/home-file-service/compare/v1.2.2...v1.3.0) (2023-03-29)
+
+
+### Features
+
+* re-write config pattern to use types ([880561e](https://github.com/pbabbott/home-file-service/commit/880561e5f3953f4dcc8a10c4ae9ab1f3d6adbd95))
+
 ## [1.2.2](https://github.com/pbabbott/home-file-service/compare/v1.2.1...v1.2.2) (2023-03-27)
 
 
