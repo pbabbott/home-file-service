@@ -3,9 +3,11 @@
   "name": "home-file-service",
   "author": "Brandon Abbott <pabbott@gmail.com>",
   "license": "MIT",
-  "workspaces": [
-    "packages/home-file-service"
-  ],
+  "workspaces": {
+    "packages":["packages/home-file-service"],
+    "nohoist": ["ts-node"]
+
+  },
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
     "nx": "15.0.10"
