@@ -1,5 +1,12 @@
 home-file-service Changelog
 
+## [1.2.2](https://github.com/pbabbott/home-file-service/compare/v1.2.1...v1.2.2) (2023-03-27)
+
+
+### Bug Fixes
+
+* wait for initial scan and remove file cap ([b5ed64f](https://github.com/pbabbott/home-file-service/commit/b5ed64f0de0ae04cc802932a45e1c038f13b5e14))
+
 ## [1.2.1](https://github.com/pbabbott/home-file-service/compare/v1.2.0...v1.2.1) (2023-03-27)
 
 
