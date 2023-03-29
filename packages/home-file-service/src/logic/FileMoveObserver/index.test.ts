@@ -12,8 +12,7 @@ describe('FileMoveObserver', () => {
         it(`Should match "${expected}"`, () => {
             const outputDirectory = 'V:\\GameCaptures\\Raw'
 
-            const sut = new FileMoveObserver({
-                outputDirectory,
+            const sut = new FileMoveObserver(outputDirectory, {
                 noOp: true,
             })
 

@@ -1,6 +1,5 @@
-import { Observable, Observer } from 'rxjs';
-import { CharRemover, ZWSPInstance } from "../CharRemover";
-import * as path from 'path'
+import { Observable } from 'rxjs';
+import { ZWSPInstance } from "../CharRemover";
 // import { logger, logError } from "../utils/logging"
 
 import * as fs from 'fs'

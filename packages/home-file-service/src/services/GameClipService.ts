@@ -4,13 +4,7 @@ import { ObservableGameClipDirectory } from '../logic/ObservableGameClipDirector
 import { cleanFilenameOperator } from '../logic/CleanFilenameOperator'
 import { filenameParserOperator } from '../logic/FilenameParserOperator'
 import { FileMoveObserver } from '../logic/FileMoveObserver'
-
-
-export type GameClipServiceOptions = {
-    captureDirectory: string,
-    outputDirectory: string,
-    waitForInitialScan: boolean
-}
+import { GameClipServiceOptions } from '../utils/config/types'
 
 export class GameClipService {
     private constructor(
@@ -20,17 +14,13 @@ export class GameClipService {
     static instance(options: GameClipServiceOptions) {
         return new GameClipService(options)
     }
-
    
     start() {
-
         // Start monitoring a directory
-        const directoryMonitor = new ObservableGameClipDirectory({
-            captureDirectory: this.options.captureDirectory,
-            waitForInitialScan: true,
-            // maxFiles: 1,
-            enableDebugLogs: false
-        })
+        logger.debug(Object.keys(this.options))
+        const directoryMonitor = new ObservableGameClipDirectory(
+            this.options.captureDirectory,
+            this.options.monitoringConfig)
 
         let observable$ = directoryMonitor
             .getObservable()
@@ -40,17 +30,11 @@ export class GameClipService {
             .pipe(filter(x => x.success === true))
 
         const {outputDirectory } = this.options
-        const fileMoveObserver = new FileMoveObserver({ 
-            outputDirectory,
-            noOp: false,
-            copyMode: true
-        })
+        const fileMoveObserver = new FileMoveObserver(outputDirectory, this.options.gameClipMoveConfig)
 
         observable$.subscribe(fileMoveObserver)
         
         directoryMonitor.startDirectoryWatcher()
         logger.info('✔️  GameClipService Started successfully.')
     }
-   
-
 }

@@ -1,18 +1,12 @@
 import * as chokidar  from 'chokidar'
 import { take, Observable, Subscriber, map, tap } from 'rxjs';
+import { MonitoringConfig } from '../../utils/config/types';
 import { logger } from "../../utils/logging"
 
-
-export type MonitoringOptions = {
-    captureDirectory: string
-    waitForInitialScan: boolean
-    maxFiles?: number
-    enableDebugLogs: boolean
-}
-
 export class ObservableGameClipDirectory  {
-
-    constructor(private readonly options: MonitoringOptions) {
+    constructor(
+        private readonly captureDirectory: string,
+        private readonly options: MonitoringConfig) {
     }
 
     private __isReady = false
@@ -33,19 +27,17 @@ export class ObservableGameClipDirectory  {
             result$ = result$.pipe(take(maxFiles))
         }
 
-        // Debug output for each file detected
-        const { enableDebugLogs } = this.options
-        if (enableDebugLogs) {
-            result$ = result$.pipe(tap(x => {
-                logger.debug(`Observable: added file: ${x}`)
-            }))
-        }
+        // Silly output for each file detected
+        result$ = result$.pipe(tap(x => {
+            logger.silly(`Observable: added file: ${x}`)
+        }))
 
         return result$
     }
 
     startDirectoryWatcher() {
-        const { captureDirectory, waitForInitialScan } = this.options
+        const { captureDirectory } = this
+        const { waitForInitialScan } = this.options
 
         logger.info(`🔭  Wait for initial scan: ${waitForInitialScan}`)
         logger.info(`🔭  Watching directory: ${captureDirectory}`)
@@ -71,9 +63,4 @@ export class ObservableGameClipDirectory  {
                 }
             })
     }
-    
 }
-
-
-
-

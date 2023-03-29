@@ -1,5 +1,8 @@
 default:
-  outputDirectory: '\\RoomOfRequirement\Video Editing\GameCaptures\Raw'
+  gameClipConfig:
+    outputDirectory: '\\RoomOfRequirement\Video Editing\GameCaptures\Raw'
+    gameClipMoveConfig:
+      copyMode: true
   logging:
     level: info
     colorize: false

@@ -35,5 +35,4 @@ export const logError = (err: NodeJS.ErrnoException) => {
     logger.error(`err.errno: ${err.errno}`)
     logger.error(`err.path: ${err.path}`)
     logger.error(`err.stack: ${err.stack}`)
-    
 }
