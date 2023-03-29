@@ -43,10 +43,19 @@ If none is found, the following configuration will be used.
 
 Specifying a partial YAML file is ok, as configuration override values are deeply merged with the default settings.
 
+Here are the default settings.
+
 ```yaml
 default:
-  captureDirectory: "C:\\Users\\pbabb\\Videos\\Captures"
-  outputDirectory: "V:\\GameCaptures\\Raw"
+  gameClipConfig:
+    captureDirectory: 'C:\\Users\\pbabb\\Videos\\Captures',
+    outputDirectory: 'V:\\GameCaptures\\Raw',
+    monitoringConfig:
+      waitForInitialScan: true
+      maxFiles: null
+    gameClipMoveConfig:
+      noOpe: false
+      copyMode: true
   logging:
     level: debug
     colorize: true
