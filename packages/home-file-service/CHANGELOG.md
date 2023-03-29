@@ -1,5 +1,17 @@
 home-file-service Changelog
 
+# [1.4.0](https://github.com/pbabbott/home-file-service/compare/v1.3.0...v1.4.0) (2023-03-29)
+
+
+### Bug Fixes
+
+* prevent ts-node from being hoisted to workspace root ([75da7eb](https://github.com/pbabbott/home-file-service/commit/75da7eb0caead2aeac4c66e5668ec66f88c4aa3b))
+
+
+### Features
+
+* Add prometheus to monitor how many files have been moved ([1d4a275](https://github.com/pbabbott/home-file-service/commit/1d4a275bee38e4dba39cdec99e9949303af3cb84))
+
 # [1.3.0](https://github.com/pbabbott/home-file-service/compare/v1.2.2...v1.3.0) (2023-03-29)
 
 
