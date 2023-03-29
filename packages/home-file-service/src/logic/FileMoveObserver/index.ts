@@ -5,6 +5,13 @@ import { logger, logError } from '../../utils/logging';
 import { GameClipMetadata, GameClipMetadataParseResult } from "../FilenameParserOperator";
 import { fileExists } from '../../utils/config';
 import { GameClipMoveConfig } from '../../utils/config/types';
+import Prometheus from 'prom-client'
+
+const files_moved = new Prometheus.Counter({
+    name: 'home_file_service_files_moved',
+    help: 'Files moved from gaming PC to NAS',
+    labelNames: ['gameName']
+})
 
 
 export class FileMoveObserver implements Partial<Observer<GameClipMetadataParseResult>> {
@@ -14,6 +21,7 @@ export class FileMoveObserver implements Partial<Observer<GameClipMetadataParseR
         private readonly options: GameClipMoveConfig) {
     }
 
+    // TODO: Extract to operator
     calculateDestination(metadata: GameClipMetadata) {
         const datedDirName = metadata.dateTime.toFormat('yyyy-MM')
 
@@ -26,12 +34,13 @@ export class FileMoveObserver implements Partial<Observer<GameClipMetadataParseR
         return outputDirectory
     }
 
-    async moveToNas(fullPath, destPath) {
+    async moveToNas(fullPath: string, destPath: string, gameName: string) {
 
+        // TODO: Extract to operator
         // check if target already exists
         const exists = await fileExists(destPath)
         if (exists) {
-            logger.debug(`file already exists. Skipping: ${fullPath}`)
+            logger.debug(`File already exists. Skipping: ${fullPath}`)
             return
         }
 
@@ -39,7 +48,6 @@ export class FileMoveObserver implements Partial<Observer<GameClipMetadataParseR
         const { noOp } = this.options
         const message = `Moving File! ${noOp ? '(noOp)' : ''} src:${fullPath} dest:${destPath}`
         logger.info(message)
-
         // Guard clause against noOp
         if (noOp === true) return
 
@@ -52,6 +60,7 @@ export class FileMoveObserver implements Partial<Observer<GameClipMetadataParseR
             logger.debug('Successfully moved file!')
         }
 
+        // TODO: Extract to operator
         // Ensure directory exists
         const dir = path.dirname(destPath)
         if (!fs.existsSync(dir)) {
@@ -66,12 +75,18 @@ export class FileMoveObserver implements Partial<Observer<GameClipMetadataParseR
             logger.debug('CopyMode: false')
             fs.rename(fullPath, destPath, errorHandler)
         }
+
+        // Increment the metrics counter.
+        logger.debug(`Incrementing counter for game: ${gameName}`)
+        files_moved.inc({
+            gameName,
+        })
+
     }
 
-    async next(metadataParseResult) {
+    async next(metadataParseResult: GameClipMetadataParseResult) {
         const { metadata } = metadataParseResult
         const destPath = this.calculateDestination(metadata)
-
-        await this.moveToNas(metadata.fullPath, destPath)
+        await this.moveToNas(metadata.fullPath, destPath, metadata.gameName)
     }
 }

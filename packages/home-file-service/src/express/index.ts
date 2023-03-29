@@ -1,7 +1,7 @@
 import express from 'express'
 import { config } from '../utils/config'
 import { logger } from '../utils/logging'
-
+import apiMetrics from 'prometheus-api-metrics'
 
 export const configureExpressApp = () => {
     const app = express()
@@ -14,8 +14,9 @@ export const configureExpressApp = () => {
         })
     })
 
-    const { port } = config
+    app.use(apiMetrics())
 
+    const { port } = config
     app.listen(config.port, () => {
         logger.info(`Example app listening on port ${port}`)
     })
