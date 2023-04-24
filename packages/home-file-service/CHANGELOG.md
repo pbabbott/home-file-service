@@ -1,5 +1,16 @@
 home-file-service Changelog
 
+## [1.4.1](https://github.com/pbabbott/home-file-service/compare/v1.4.0...v1.4.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* Adjust readme build status ([66e0960](https://github.com/pbabbott/home-file-service/commit/66e0960fa2ba8cb748279d6e400188ec89aea3a3))
+* Adjust readme to improve summary ([e25558f](https://github.com/pbabbott/home-file-service/commit/e25558f1ea9a670115ef86595b6d995ab21329e0))
+* Clean up ansible playbook slightly ([dc69bb6](https://github.com/pbabbott/home-file-service/commit/dc69bb65a261fd80870cf0a51dae4a92658fdb68))
+* Minor adjustment to readme ([4e443bf](https://github.com/pbabbott/home-file-service/commit/4e443bfe97044163b2bfdd28ae9138d5a9ff9226))
+* Touch drone file to trigger ci ([45bec5a](https://github.com/pbabbott/home-file-service/commit/45bec5a237171b67ec799a47e677d0323de73ff3))
+
 # [1.4.0](https://github.com/pbabbott/home-file-service/compare/v1.3.0...v1.4.0) (2023-03-29)
 
 
