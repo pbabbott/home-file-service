@@ -57,8 +57,6 @@ node:
 trigger:
   ref: 
     - refs/tags/v*
-  # branch:
-  #   - main
 steps:
   - name: "Stop Service"
     environment:
