@@ -1,5 +1,11 @@
-- name: Set Firewall
+- name: Install New Version of Windows Service
   hosts: elder_wand
+  vars:
+    DRONE_COMMIT_REF: 'refs/tags/v1.1.21'
+    temp_dir: "C:\\temp"
+    app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
+    install_dir: "packages\\service-installer"
+    app_dir: "C:\\home-file-service"
   tasks:
     - name: Firewall rule to allow HTTP on TCP port 4000 (for home-file-service)
       community.windows.win_firewall_rule:
@@ -12,15 +18,6 @@
         state: present
         enabled: yes
 
-- name: Install New Version of Windows Service
-  hosts: elder_wand
-  vars:
-    DRONE_COMMIT_REF: 'refs/tags/v1.1.21'
-    temp_dir: "C:\\temp"
-    app_version: "{{ DRONE_COMMIT_REF | regex_replace('refs/tags/v') }}"
-    install_dir: "packages\\service-installer"
-    app_dir: "C:\\home-file-service"
-  tasks:
     - name: Prepare Temp Directory
       block:
         - name: Restore package version from verdaccio (download .tgz)
