@@ -1,11 +1,11 @@
 # home-file-service
-A service to help with managing video game clips recorded on my home computers to ultimately move them onto my NAS in an organized fashion.
+A service to help with managing video game clips recorded on my gaming pc to ultimately move them onto my NAS in an organized fashion so that video editing is a breeze!
 
 [![Build Status](https://drone.abbottland.io/api/badges/pbabbott/home-file-service/status.svg?ref=refs/heads/main)](https://drone.abbottland.io/pbabbott/home-file-service)
 
 ## What is this?
 
-This project is a window service that runs on my gaming computer that helps keep my files organized.  It is able to monitor a capture directory and move files onto my NAS.
+This project is an express.js API installed as a window service that runs on my gaming computer that helps keep my files organized.  It is able to monitor a capture directory and move files onto my NAS.
 
 ## Development
 
