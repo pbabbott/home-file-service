@@ -1,7 +1,7 @@
 # home-file-service
 A service to help with renaming files on my home computers.
 
-[![Build Status](https://drone.abbottland.duckdns.org/api/badges/pbabbott/home-file-service/status.svg?ref=refs/heads/main)](https://drone.abbottland.duckdns.org/pbabbott/home-file-service)
+[![Build Status](https://drone.abbottland.io/api/badges/pbabbott/home-file-service/status.svg?ref=refs/heads/main)](https://drone.abbottland.io/pbabbott/home-file-service)
 
 ## What is this?
 

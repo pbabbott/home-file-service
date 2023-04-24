@@ -1,9 +1,9 @@
 - name: Set Firewall
   hosts: elder_wand
   tasks:
-    - name: Firewall rule to allow HTTP on TCP port 4000
+    - name: Firewall rule to allow HTTP on TCP port 4000 (for home-file-service)
       community.windows.win_firewall_rule:
-        name: HTTP
+        name: home-file-service
         localport: 4000
         action: allow
         direction: in
